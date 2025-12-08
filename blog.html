@@ -1,0 +1,783 @@
+<!doctype html>
+<html lang="fr">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>Blog — Novexa</title>
+    <meta name="description"
+        content="Blog Novexa — articles sur création de site, branding, SEO, performance et études de cas." />
+    <link rel="canonical" href="https://novexa.example.com/blog.html" />
+    <meta name="theme-color" content="#0A1F44">
+
+    <!-- Fonts -->
+    <link
+        href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600&family=Inter:wght@300;400;500;600&display=swap"
+        rel="stylesheet" />
+
+   <style>
+    /* ===========================
+   Blog page — navy blue theme (optimisé)
+   Responsive, accessible, fluid grids/typo
+=========================== */
+
+    :root {
+        --navy: #0A1F44;
+        --ivory: #F7F4EE;
+        --muted: #D9D7D3;
+        --gold: #C9A96A;
+        --line: #15264A;
+        --card: #0D1A3A;
+        --max-width: 1100px;
+        --pad: 20px;
+        --radius-md: 12px;
+        --transition-fast: 160ms;
+        --touch-size: 48px;
+    }
+
+    * {
+        box-sizing: border-box
+    }
+
+    html {
+        font-family: Inter, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+        -webkit-font-smoothing: antialiased
+    }
+
+    body {
+        margin: 0;
+        background: var(--navy);
+        color: var(--ivory);
+        line-height: 1.6;
+        font-size: 16px
+    }
+
+    img,
+    picture,
+    svg {
+        max-width: 100%;
+        height: auto;
+        display: block;
+        object-fit: cover;
+        border-radius: 2px
+    }
+
+    /* ✅ images fluides */
+    a {
+        color: inherit;
+        text-decoration: none
+    }
+
+    .container {
+        max-width: var(--max-width);
+        margin: 0 auto;
+        padding: 0 var(--pad)
+    }
+
+    .hidden {
+        display: none !important
+    }
+
+    /* Header */
+    .site-header {
+        position: sticky;
+        top: 0;
+        z-index: 60;
+        background: linear-gradient(180deg, rgba(10, 31, 68, 0.88), rgba(10, 31, 68, 0.65));
+        border-bottom: 1px solid var(--line);
+        backdrop-filter: blur(6px) saturate(1.05)
+    }
+
+    .header-inner {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        height: 72px;
+        gap: 12px;
+        padding: 0 var(--pad)
+    }
+
+    .brand img {
+        height: 36px
+    }
+
+    .nav-list {
+        list-style: none;
+        margin: 0;
+        padding: 0;
+        display: flex;
+        gap: 16px;
+        align-items: center
+    }
+
+    .nav-list a {
+        padding: 8px 10px;
+        border-radius: 8px;
+        transition: background var(--transition-fast)
+    }
+
+    .nav-list a:hover {
+        background: rgba(255, 255, 255, 0.02)
+    }
+
+    /* Hamburger */
+    .hamburger {
+        display: none;
+        align-items: center;
+        justify-content: center;
+        width: 44px;
+        height: 44px;
+        border-radius: 10px;
+        border: 1px solid var(--line);
+        background: transparent;
+        color: var(--ivory);
+        cursor: pointer
+    }
+
+    .hamburger .bar {
+        position: relative;
+        width: 20px;
+        height: 2px;
+        background: var(--ivory);
+        display: block
+    }
+
+    .hamburger .bar::before,
+    .hamburger .bar::after {
+        content: "";
+        position: absolute;
+        left: 0;
+        width: 20px;
+        height: 2px;
+        background: var(--ivory)
+    }
+
+    .hamburger .bar::before {
+        top: -6px
+    }
+
+    .hamburger .bar::after {
+        top: 6px
+    }
+
+    .hamburger.open .bar {
+        background: transparent
+    }
+
+    .hamburger.open .bar::before {
+        transform: translateY(6px) rotate(45deg)
+    }
+
+    .hamburger.open .bar::after {
+        transform: translateY(-6px) rotate(-45deg)
+    }
+
+    /* Mobile nav overlay */
+    .mobile-nav-overlay {
+        position: fixed;
+        inset: 0;
+        background: linear-gradient(180deg, rgba(10, 31, 68, 0.98), rgba(8, 24, 53, 0.98));
+        z-index: 120;
+        padding: 88px 20px 40px;
+        display: none;
+        overflow: auto
+    }
+
+    .mobile-nav-overlay.open {
+        display: block
+    }
+
+    .mobile-nav-overlay .nav-list {
+        flex-direction: column;
+        gap: 18px
+    }
+
+    .mobile-nav-overlay .nav-list a {
+        font-size: 1.05rem;
+        padding: 12px;
+        border-radius: 10px
+    }
+
+    /* Hero */
+    .blog-hero {
+        padding: 64px 0 36px;
+        background: radial-gradient(900px 360px at 10% 0%, rgba(201, 169, 106, 0.06), transparent 40%), linear-gradient(180deg, rgba(13, 26, 58, 0.22), rgba(10, 31, 68, 0.0) 50%)
+    }
+
+    .kicker {
+        font-size: 0.85rem;
+        color: var(--muted);
+        text-transform: uppercase;
+        letter-spacing: 0.08em;
+        margin: 0 0 8px
+    }
+
+    .hero-title {
+        font-family: "Playfair Display", serif;
+        font-size: clamp(28px, 5vw, 44px);
+        margin: 0 0 8px;
+        color: var(--ivory)
+    }
+
+    .hero-sub {
+        color: var(--muted);
+        max-width: 760px;
+        margin: 0;
+        font-size: clamp(0.9rem, 2.5vw, 1.05rem)
+    }
+
+    /* ✅ fluide */
+
+    /* Layout */
+    .blog-layout {
+        display: grid;
+        grid-template-columns: 1fr 320px;
+        gap: 28px;
+        padding: 36px 0
+    }
+
+    @media(max-width:980px) {
+        .blog-layout {
+            grid-template-columns: 1fr
+        }
+    }
+
+    /* Post grid (fluid) */
+    .post-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+        gap: 18px
+    }
+
+    /* ✅ fluid */
+    .post-card {
+        background: var(--card);
+        border: 1px solid var(--line);
+        border-radius: var(--radius-md);
+        overflow: hidden;
+        display: flex;
+        flex-direction: column;
+        transition: transform var(--transition-fast), box-shadow var(--transition-fast), border-color var(--transition-fast)
+    }
+
+    .post-card:hover {
+        transform: translateY(-6px);
+        box-shadow: 0 18px 40px rgba(2, 6, 23, 0.45);
+        border-color: rgba(201, 169, 106, 0.06)
+    }
+
+    .post-media img {
+        width: 100%;
+        height: 200px;
+        object-fit: cover;
+        display: block
+    }
+
+    .post-body {
+        padding: 14px;
+        display: flex;
+        flex-direction: column;
+        gap: 8px
+    }
+
+    .post-meta {
+        display: flex;
+        gap: 10px;
+        align-items: center;
+        color: var(--muted);
+        font-size: 0.9rem
+    }
+
+    .post-title {
+        margin: 0;
+        font-family: "Playfair Display", serif;
+        font-size: 1.15rem
+    }
+
+    .post-excerpt {
+        color: var(--muted);
+        margin: 0 0 8px 0
+    }
+
+    /* Read more */
+    .read-more {
+        margin-top: auto;
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        padding: 8px 12px;
+        border-radius: 8px;
+        border: 1px solid var(--line);
+        background: transparent;
+        color: var(--ivory);
+        transition: background var(--transition-fast);
+        min-height: var(--touch-size)
+    }
+
+    /* ✅ ergonomie tactile */
+    .read-more:hover {
+        background: linear-gradient(90deg, rgba(201, 169, 106, 0.04), transparent)
+    }
+
+    /* Sidebar */
+    .sidebar .card {
+        background: var(--card);
+        border: 1px solid var(--line);
+        border-radius: 12px;
+        padding: 14px;
+        margin-bottom: 14px
+    }
+
+    .sidebar .search input,
+    .newsletter input {
+        width: 100%;
+        padding: 10px;
+        border-radius: 10px;
+        border: 1px solid var(--line);
+        background: #0E1836;
+        color: var(--ivory)
+    }
+
+    .newsletter .btn--primary {
+        width: 100%;
+        padding: 10px 12px;
+        border-radius: 8px
+    }
+
+    /* Pagination */
+    .pagination {
+        display: flex;
+        gap: 8px;
+        flex-wrap: wrap;
+        margin-top: 18px;
+        justify-content: center
+    }
+
+    .pagination .page {
+        padding: 8px 12px;
+        border-radius: 8px;
+        border: 1px solid var(--line);
+        background: transparent;
+        color: var(--ivory);
+        cursor: pointer;
+        min-height: var(--touch-size)
+    }
+
+    .pagination .page.active {
+        background: var(--gold);
+        color: #111;
+        border-color: transparent
+    }
+
+    /* Responsive adjustments */
+    @media(max-width:980px) {
+        .post-media img {
+            height: 220px
+        }
+    }
+
+    @media(max-width:760px) {
+        html {
+            font-size: 15px
+        }
+
+        .post-media img {
+            height: 180px
+        }
+
+        .blog-hero {
+            padding: 48px 0 24px
+        }
+
+        .hero-title {
+            font-size: clamp(20px, 6vw, 28px)
+        }
+
+        .read-more {
+            width: 100%;
+            justify-content: center
+        }
+
+        .nav-list {
+            display: none
+        }
+
+        .hamburger {
+            display: flex
+        }
+
+        .mobile-nav-overlay {
+            padding-top: 120px
+        }
+    }
+
+    @media(max-width:420px) {
+        .header-inner {
+            padding: 8px 12px
+        }
+
+        .container {
+            padding: 0 12px
+        }
+
+        .post-media img {
+            height: 160px
+        }
+    }
+
+    @media print {
+        body {
+            background: #fff;
+            color: #000
+        }
+
+        .site-header,
+        .site-footer,
+        .mobile-nav-overlay,
+        .hamburger {
+            display: none
+        }
+
+        a::after {
+            content: " (" attr(href) ")";
+            font-size: 0.85em
+        }
+    }
+</style>
+
+<script>
+    /* ✅ JS minimal pour activer le hamburger */
+    const hamburger = document.querySelector('.hamburger');
+    const overlay = document.querySelector('.mobile-nav-overlay');
+    hamburger.addEventListener('click', () => {
+        hamburger.classList.toggle('open');
+        overlay.classList.toggle('open');
+    });
+</script>
+</head>
+
+<body>
+    <a class="skip-link" href="#main" style="position:absolute;left:-9999px">Aller au contenu</a>
+
+    <!-- Header -->
+    <header class="site-header" aria-label="En-tête du site">
+        <div class="container header-inner">
+            <a class="brand" href="/" aria-label="Accueil Novexa">
+                <img src="Capture d'écran 2025-12-04 160900.png" alt="Novexa" width="110" height="40" />
+            </a>
+
+            <nav aria-label="Navigation principale">
+                <ul class="nav-list" id="main-nav-blog">
+                    <li><a href="novexa.html">Accueil</a></li>
+                    <li><a href="service.html">Services</a></li>
+                    <li><a href="packs.html">Packs</a></li>
+                    <li><a href="portfolio.html">Portfolio</a></li>
+                    <li><a href="blog.html" aria-current="page">Blog</a></li>
+                    <li><a href="contact.html" class="btn-link"
+                            style="padding:8px 12px;border:1px solid var(--line);border-radius:8px">Contact</a></li>
+                </ul>
+            </nav>
+
+            <button class="hamburger" id="hamburger-blog" aria-label="Ouvrir le menu" aria-expanded="false">
+                <span class="bar" aria-hidden="true"></span>
+            </button>
+        </div>
+    </header>
+
+    <div id="mobile-nav-placeholder-blog"></div>
+
+    <main id="main">
+        <!-- Hero -->
+        <section class="blog-hero">
+            <div class="container">
+                <p class="kicker">Ressources</p>
+                <h1 class="hero-title">Le blog Novexa — conseils, études de cas et bonnes pratiques</h1>
+                <p class="hero-sub">Articles pratiques sur la création de site, le branding, le SEO et la performance
+                    web.</p>
+            </div>
+        </section>
+
+        <!-- Layout -->
+        <section class="container blog-layout" aria-label="Articles et sidebar">
+            <div>
+                <!-- Controls -->
+                <div class="section-header">
+                    <div class="small">Affichage <strong id="results-count">6</strong> articles</div>
+                    <div style="display:flex;gap:8px;align-items:center">
+                        <label for="sort" class="small" style="margin-right:8px;color:var(--muted)">Trier</label>
+                        <select id="sort"
+                            style="background:#0E1836;color:var(--ivory);border:1px solid var(--line);border-radius:8px;padding:8px">
+                            <option value="latest">Les plus récents</option>
+                            <option value="popular">Les plus lus</option>
+                            <option value="oldest">Les plus anciens</option>
+                        </select>
+                    </div>
+                </div>
+
+                <!-- Posts grid -->
+                <div class="post-grid" id="post-grid">
+                    <!-- Post 1 -->
+                    <article class="post-card" data-tags="seo,tech" aria-labelledby="post-1-title" tabindex="0">
+                        <a class="post-media" href="/blog/post-seo-core-web-vitals.html">
+                            <img src="/assets/images/blog-seo.jpg" alt="Optimiser Core Web Vitals" loading="lazy">
+                        </a>
+                        <div class="post-body">
+                            <div class="post-meta"><time datetime="2025-11-10">10 Nov
+                                    2025</time><span>•</span><span>SEO</span></div>
+                            <h3 id="post-1-title" class="post-title"><a
+                                    href="/blog/post-seo-core-web-vitals.html">Optimiser Core Web Vitals pour 2026</a>
+                            </h3>
+                            <p class="post-excerpt">Guide pratique pour améliorer LCP, FID et CLS sur des sites vitrines
+                                et boutiques de services.</p>
+                            <a class="read-more" href="/blog/post-seo-core-web-vitals.html">Lire l'article</a>
+                        </div>
+                    </article>
+
+                    <!-- Post 2 -->
+                    <article class="post-card" data-tags="branding" aria-labelledby="post-2-title" tabindex="0">
+                        <a class="post-media" href="/blog/post-branding-minimal.html">
+                            <img src="/assets/images/blog-branding.jpg" alt="Branding minimal luxe" loading="lazy">
+                        </a>
+                        <div class="post-body">
+                            <div class="post-meta"><time datetime="2025-10-02">02 Oct
+                                    2025</time><span>•</span><span>Branding</span></div>
+                            <h3 id="post-2-title" class="post-title"><a href="/blog/post-branding-minimal.html">Branding
+                                    minimal luxe pour petites marques</a></h3>
+                            <p class="post-excerpt">Comment construire une identité cohérente sans exploser le budget.
+                            </p>
+                            <a class="read-more" href="/blog/post-branding-minimal.html">Lire l'article</a>
+                        </div>
+                    </article>
+
+                    <!-- Post 3 -->
+                    <article class="post-card" data-tags="ecommerce" aria-labelledby="post-3-title" tabindex="0">
+                        <a class="post-media" href="/blog/post-ecommerce-conversion.html">
+                            <img src="/assets/images/blog-ecommerce.jpg" alt="Conversion e‑commerce" loading="lazy">
+                        </a>
+                        <div class="post-body">
+                            <div class="post-meta"><time datetime="2025-09-18">18 Sep
+                                    2025</time><span>•</span><span>E‑commerce</span></div>
+                            <h3 id="post-3-title" class="post-title"><a
+                                    href="/blog/post-ecommerce-conversion.html">Augmenter la conversion sur une boutique
+                                    de services</a></h3>
+                            <p class="post-excerpt">Tactiques UX et micro‑copies qui réduisent l'abandon de panier.</p>
+                            <a class="read-more" href="/blog/post-ecommerce-conversion.html">Lire l'article</a>
+                        </div>
+                    </article>
+
+                    <!-- Post 4 -->
+                    <article class="post-card" data-tags="process" aria-labelledby="post-4-title" tabindex="0">
+                        <a class="post-media" href="/blog/post-process-design.html">
+                            <img src="/assets/images/blog-process.jpg" alt="Process design" loading="lazy">
+                        </a>
+                        <div class="post-body">
+                            <div class="post-meta"><time datetime="2025-08-05">05 Août
+                                    2025</time><span>•</span><span>Process</span></div>
+                            <h3 id="post-4-title" class="post-title"><a href="/blog/post-process-design.html">Notre
+                                    process pour livrer vite et propre</a></h3>
+                            <p class="post-excerpt">Étapes concrètes pour cadrer, designer et livrer un site en 2
+                                semaines.</p>
+                            <a class="read-more" href="/blog/post-process-design.html">Lire l'article</a>
+                        </div>
+                    </article>
+
+                    <!-- Post 5 -->
+                    <article class="post-card" data-tags="seo" aria-labelledby="post-5-title" tabindex="0">
+                        <a class="post-media" href="/blog/post-seo-local.html">
+                            <img src="/assets/images/blog-seo-local.jpg" alt="SEO local" loading="lazy">
+                        </a>
+                        <div class="post-body">
+                            <div class="post-meta"><time datetime="2025-07-12">12 Juil
+                                    2025</time><span>•</span><span>SEO</span></div>
+                            <h3 id="post-5-title" class="post-title"><a href="/blog/post-seo-local.html">SEO local pour
+                                    artisans et commerces</a></h3>
+                            <p class="post-excerpt">Checklist rapide pour apparaître sur Google Maps et capter des
+                                clients locaux.</p>
+                            <a class="read-more" href="/blog/post-seo-local.html">Lire l'article</a>
+                        </div>
+                    </article>
+
+                    <!-- Post 6 -->
+                    <article class="post-card" data-tags="case-study" aria-labelledby="post-6-title" tabindex="0">
+                        <a class="post-media" href="/blog/post-case-study-noor.html">
+                            <img src="/assets/images/blog-case-noor.jpg" alt="Étude de cas Noor" loading="lazy">
+                        </a>
+                        <div class="post-body">
+                            <div class="post-meta"><time datetime="2025-06-01">01 Juin
+                                    2025</time><span>•</span><span>Étude de cas</span></div>
+                            <h3 id="post-6-title" class="post-title"><a href="/blog/post-case-study-noor.html">Étude de
+                                    cas — Studio Noor</a></h3>
+                            <p class="post-excerpt">Comment nous avons productisé des services et augmenté les ventes en
+                                ligne.</p>
+                            <a class="read-more" href="/blog/post-case-study-noor.html">Lire l'article</a>
+                        </div>
+                    </article>
+                </div>
+
+                <!-- Pagination -->
+                <div class="pagination" role="navigation" aria-label="Pagination">
+                    <button class="page" data-page="1">1</button>
+                    
+                </div>
+            </div>
+
+            <!-- Sidebar -->
+            <aside class="sidebar">
+                <div class="search card">
+                    <label for="blog-search" class="small"
+                        style="display:block;margin-bottom:8px;color:var(--muted)">Rechercher</label>
+                    <input id="blog-search" type="search" placeholder="Rechercher un article"
+                        aria-label="Rechercher un article">
+                </div>
+
+                <div class="card">
+                    <h4 style="margin:0 0 10px 0">Catégories</h4>
+                    <div class="categories-list">
+                        <a href="#" data-filter="all">Toutes</a>
+                        <a href="#" data-filter="seo">SEO</a>
+                        <a href="#" data-filter="branding">Branding</a>
+                        <a href="#" data-filter="ecommerce">E‑commerce</a>
+                        <a href="#" data-filter="process">Process</a>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <h4 style="margin:0 0 10px 0">Tags populaires</h4>
+                    <div class="tags-list">
+                        <span class="tag">Core Web Vitals</span>
+                        <span class="tag">Checkout</span>
+                        <span class="tag">Branding</span>
+                        <span class="tag">SEO local</span>
+                        <span class="tag">Performance</span>
+                    </div>
+                </div>
+
+                <div class="newsletter card">
+                    <h4 style="margin:0 0 8px 0">Newsletter</h4>
+                    <p class="small" style="margin:0 0 10px;color:var(--muted)">Recevez nos guides et études de cas une
+                        fois par mois.</p>
+                    <form id="newsletter-form">
+                        <input id="newsletter-email" type="email" placeholder="Votre email" required
+                            aria-label="Email newsletter">
+                        <button class="btn--primary" type="submit"
+                            style="display:block;width:100%;margin-top:8px;padding:10px;border-radius:8px;background:var(--gold);color:#111;border:0;font-weight:600">S'inscrire</button>
+                        <p class="small" style="margin-top:8px;color:var(--muted)">Pas de spam. Désinscription facile.
+                        </p>
+                    </form>
+                </div>
+            </aside>
+        </section>
+    </main>
+
+    <footer class="site-footer" aria-label="Pied de page"
+        style="border-top:1px solid var(--line);padding:24px 0;background:linear-gradient(180deg, rgba(8,24,53,0.9), rgba(8,24,53,0.95))">
+        <div class="container" style="display:flex;align-items:center;justify-content:space-between;gap:12px">
+            <small>© <span id="year"></span> Novexa. Tous droits réservés.</small>
+            <nav aria-label="Liens secondaires">
+                <a href="/apropos.html" style="color:var(--muted);margin-right:12px">À propos</a>
+                <a href="/contact.html" style="color:var(--muted)">Contact</a>
+            </nav>
+        </div>
+    </footer>
+
+    <script>
+        // Year
+        document.getElementById('year').textContent = new Date().getFullYear();
+
+        // Mobile nav overlay (reusable)
+        (function () {
+            const hamburger = document.getElementById('hamburger-blog');
+            const mainNav = document.getElementById('main-nav-blog');
+            const placeholder = document.getElementById('mobile-nav-placeholder-blog');
+            if (!hamburger || !mainNav || !placeholder) return;
+            const overlay = document.createElement('div');
+            overlay.className = 'mobile-nav-overlay';
+            overlay.innerHTML = '<nav class="nav-list">' + mainNav.innerHTML + '</nav>';
+            placeholder.appendChild(overlay);
+
+            hamburger.addEventListener('click', function () {
+                const open = overlay.classList.toggle('open');
+                hamburger.classList.toggle('open', open);
+                hamburger.setAttribute('aria-expanded', String(open));
+                document.body.style.overflow = open ? 'hidden' : '';
+            });
+
+            overlay.addEventListener('click', function (e) {
+                if (e.target.tagName === 'A') {
+                    overlay.classList.remove('open');
+                    hamburger.classList.remove('open');
+                    hamburger.setAttribute('aria-expanded', 'false');
+                    document.body.style.overflow = '';
+                }
+            });
+        })();
+
+        // Search and category filter
+        (function () {
+            const search = document.getElementById('blog-search');
+            const posts = Array.from(document.querySelectorAll('.post-card'));
+            const categories = document.querySelectorAll('.categories-list [data-filter]');
+            const resultsCount = document.getElementById('results-count');
+
+            function updateCount() {
+                const visible = posts.filter(p => p.style.display !== 'none').length;
+                resultsCount.textContent = visible;
+            }
+
+            function filterByText(q) {
+                const term = q.trim().toLowerCase();
+                posts.forEach(p => {
+                    const title = p.querySelector('.post-title').textContent.toLowerCase();
+                    const excerpt = p.querySelector('.post-excerpt').textContent.toLowerCase();
+                    p.style.display = (title.includes(term) || excerpt.includes(term)) ? '' : 'none';
+                });
+                updateCount();
+            }
+
+            if (search) {
+                search.addEventListener('input', function () {
+                    filterByText(this.value);
+                });
+            }
+
+            categories.forEach(btn => {
+                btn.addEventListener('click', function (e) {
+                    e.preventDefault();
+                    const filter = this.dataset.filter;
+                    posts.forEach(p => {
+                        if (filter === 'all') { p.style.display = ''; return; }
+                        const tags = (p.dataset.tags || '').split(',').map(t => t.trim());
+                        p.style.display = tags.includes(filter) ? '' : 'none';
+                    });
+                    updateCount();
+                });
+            });
+
+            // Initialize count
+            updateCount();
+        })();
+
+        // Newsletter subscribe (simulation)
+        (function () {
+            const newsletter = document.getElementById('newsletter-form');
+            if (!newsletter) return;
+            newsletter.addEventListener('submit', function (e) {
+                e.preventDefault();
+                const email = document.getElementById('newsletter-email').value.trim();
+                if (!email) { alert('Merci de saisir un email valide.'); return; }
+                newsletter.innerHTML = '<p style="font-weight:700;margin:0 0 8px">Merci pour votre inscription.</p><p class="small" style="color:var(--muted)">Confirmez votre abonnement via l\\'email que vous allez recevoir.</p > ';
+            });
+        })();
+
+        // Pagination stub (smooth scroll)
+        (function () {
+            document.querySelectorAll('.pagination .page').forEach(btn => {
+                btn.addEventListener('click', function () {
+                    window.scrollTo({ top: 0, behavior: 'smooth' });
+                });
+            });
+        })();
+    </script>
+</body>
+
+</html>

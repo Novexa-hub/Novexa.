@@ -1,0 +1,351 @@
+<!doctype html>
+<html lang="fr">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>Détail du pack — Novexa</title>
+    <meta name="description" content="Page détaillée d’un pack Novexa avec prix, description et options." />
+    <meta name="theme-color" content="#0A1F44">
+
+    <!-- Fonts -->
+ 
+
+<style>
+    :root {
+  --navy: #0A1F44;
+  --ivory: #F7F4EE;
+  --muted: #D9D7D3;
+  --gold: #C9A96A;
+  --line: #15264A;
+  --card: #0D1A3A;
+  --max-width: 1100px;
+  --pad: 20px;
+  --radius: 12px;
+  --transition: 160ms;
+  --touch-size: 48px;
+}
+
+*{box-sizing:border-box}
+body{margin:0;background:var(--navy);color:var(--ivory);font-family:Inter,system-ui,sans-serif;line-height:1.6}
+.container{max-width:var(--max-width);margin:0 auto;padding:0 var(--pad)}
+a{color:inherit;text-decoration:none}
+img{border-radius:2px;height:auto;object-fit:cover}
+
+/* Header */
+.site-header{position:sticky;top:0;background:rgba(10,31,68,0.9);border-bottom:1px solid var(--line);backdrop-filter:blur(6px)}
+.header-inner{display:flex;align-items:center;justify-content:space-between;height:72px;padding:0 var(--pad)}
+.brand img{height:36px}
+.nav-list{list-style:none;display:flex;gap:16px;margin:0;padding:0}
+.nav-list a{padding:8px 10px;border-radius:8px}
+.nav-list a:hover{background:rgba(255,255,255,0.05)}
+
+/* Hero */
+.hero{padding:64px 0 28px;background:linear-gradient(180deg,rgba(201,169,106,0.06),transparent)}
+.hero-title{font-family:"Playfair Display",serif;font-size:clamp(26px,5vw,40px);margin:0 0 12px}
+.hero-sub{color:var(--muted);max-width:720px;margin:0;font-size:clamp(0.9rem,2.5vw,1.05rem)} /* ✅ fluide */
+
+/* Detail layout */
+.detail-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:28px;padding:36px 0} /* ✅ fluide */
+.card{background:var(--card);border:1px solid var(--line);border-radius:var(--radius);padding:18px}
+.price{font-size:1.6rem;font-weight:700;color:var(--gold);margin:12px 0}
+.features{margin:12px 0;padding-left:18px;color:var(--muted)}
+.features li{margin-bottom:6px}
+
+/* Buttons */
+.btn{display:inline-flex;align-items:center;justify-content:center;padding:12px 16px;border-radius:10px;font-weight:600;cursor:pointer;border:1px solid transparent;transition:transform var(--transition);min-height:var(--touch-size)} /* ✅ tactile */
+.btn-primary{background:var(--gold);color:#111}
+.btn-primary:hover{transform:translateY(-3px)}
+.btn-ghost{background:transparent;border:1px solid var(--line);color:var(--ivory)}
+
+/* Sidebar */
+.sidebar .card{margin-bottom:18px}
+.sidebar h4{margin:0 0 8px;font-family:"Playfair Display",serif}
+.sidebar p{margin:0;color:var(--muted)}
+
+/* Footer */
+.site-footer{border-top:1px solid var(--line);padding:20px 0;background:linear-gradient(180deg,rgba(8,24,53,0.9),rgba(8,24,53,0.95))}
+.footer-inner{display:flex;align-items:center;justify-content:space-between}
+.footer-inner a{color:var(--muted);margin-left:12px}
+
+/* Responsive */
+@media(max-width:760px){
+  html{font-size:15px}
+  .nav-list{display:none}
+  .hero{padding:48px 0 20px}
+  .hero-title{font-size:clamp(22px,6vw,28px)}
+  .btn-primary{width:100%}
+}
+@media(max-width:420px){
+  .header-inner{padding:8px 12px}
+  .container{padding:0 12px}
+}
+
+</style>
+</head>
+
+<body>
+    <header class="site-header">
+        <div class="container header-inner">
+            <a class="brand" href="/"><img src="Capture d'écran 2025-12-04 160900.png" alt="Novexa"></a>
+            <nav>
+                <ul class="nav-list">
+                    <li><a href="novexa.html">Accueil</a></li>
+                    <li><a href="packs.html">Packs</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main class="container">
+        <section class="hero">
+            <h1 class="hero-title">Pack Vitrine</h1>
+            <p class="hero-sub">Un site vitrine élégant et performant pour présenter votre activité.</p>
+        </section>
+
+        <section class="detail-grid">
+            <!-- Main content -->
+            <div>
+                <div class="card">
+                    
+                    <h2>Description</h2>
+                    <p>Ce pack inclut la création d’un site vitrine de 3 pages avec design minimal luxe et intégration responsive.</p>
+                    <div class="price">500 MAD</div>
+                    <h3>Caractéristiques</h3>
+                    <ul class="features">
+                        <li>3 pages personnalisées</li>
+                        <li>Design responsive</li>
+                        <li>Formulaire de contact simple</li>
+                    </ul>
+                    <div style="margin-top:16px;display:flex;gap:12px">
+                        <button class="btn btn-primary">Réserver ce pack</button>
+                        <a href="contact.html" class="btn btn-ghost">Demander un devis</a>
+                    </div>
+                </div>
+            </div>
+            <div>
+            <div class="card">
+               
+                <h2>Description</h2>
+                <p>Ce pack inclut la création d’un site vitrine de 5 pages avec design minimal luxe, optimisation
+                    SEO de base et intégration responsive.</p>
+                <div class="price">800 MAD</div>
+                <h3>Caractéristiques</h3>
+                <ul class="features">
+                    <li>5 pages personnalisées</li>
+                    <li>Design responsive</li>
+                    <li>SEO technique de base</li>
+                    <li>Formulaire de contact</li>
+                </ul>
+                <div style="margin-top:16px;display:flex;gap:12px">
+                    <button class="btn btn-primary">Réserver ce pack</button>
+                    <a href="contact.html" class="btn btn-ghost">Demander un devis</a>
+                </div>
+            </div>
+            </div>
+        <div>
+        <div class="card">
+            <h2>Description</h2>
+            <p>Ce pack inclut la création d’un site vitrine de 5 pages avec design minimal luxe, optimisation
+                SEO de base et intégration responsive.</p>
+            <div class="price">1000 MAD</div>
+            <h3>Caractéristiques</h3>
+            <ul class="features">
+                <li>5 pages personnalisées</li>
+                <li>Design responsive</li>
+                <li>SEO developper</li>
+                <li>Formulaire de contact</li>
+            </ul>
+            <div style="margin-top:16px;display:flex;gap:12px">
+                <button class="btn btn-primary">Réserver ce pack</button>
+                <a href="contact.html" class="btn btn-ghost">Demander un devis</a>
+            </div>
+        </div>
+        </div>
+        </section>
+    </main>
+
+    <footer class="site-footer">
+        <div class="container footer-inner">
+            <small>© <span id="year"></span> Novexa. Tous droits réservés.</small>
+            <nav>
+                <a href="/apropos.html">À propos</a>
+                <a href="/packs.html">Packs</a>
+                <a href="/contact.html">Contact</a>
+            </nav>
+        </div>
+    </footer>
+
+    <script>
+        // Year auto
+        document.getElementById('year').textContent = new Date().getFullYear();
+        
+    // Year
+                document.getElementById('year').textContent = new Date().getFullYear();
+
+                // Mobile nav overlay creation and hamburger toggle
+                // ... (votre code pour le menu mobile)
+                (function () {
+        const hamburger = document.getElementById('hamburger');
+                const mainNav = document.getElementById('main-nav');
+                const placeholder = document.getElementById('mobile-nav-placeholder');
+
+                // Build overlay element
+                const overlay = document.createElement('div');
+                overlay.className = 'mobile-nav-overlay';
+                overlay.innerHTML = '<nav class="nav-list">' + mainNav.innerHTML + '</nav>';
+                placeholder.appendChild(overlay);
+
+                hamburger.addEventListener('click', function () {
+            const open = overlay.classList.toggle('open');
+                hamburger.classList.toggle('open', open);
+                hamburger.setAttribute('aria-expanded', String(open));
+                document.body.style.overflow = open ? 'hidden' : '';
+        });
+
+                // Close overlay when clicking a link
+                overlay.addEventListener('click', function (e) {
+            if (e.target.tagName === 'A') {
+                    overlay.classList.remove('open');
+                hamburger.classList.remove('open');
+                hamburger.setAttribute('aria-expanded', 'false');
+                document.body.style.overflow = '';
+            }
+        });
+    })();
+
+                // FAQ accordion
+                // ... (votre code pour le FAQ)
+                (function () {
+                    document.querySelectorAll('.faq-item').forEach(item => {
+                        const btn = item.querySelector('.faq-btn');
+                        btn.addEventListener('click', () => {
+                            const open = item.hasAttribute('open');
+                            document.querySelectorAll('.faq-item').forEach(i => {
+                                i.removeAttribute('open');
+                                i.querySelector('.faq-btn').setAttribute('aria-expanded', 'false');
+                            });
+                            if (!open) {
+                                item.setAttribute('open', '');
+                                btn.setAttribute('aria-expanded', 'true');
+                            }
+                        });
+                    });
+    })();
+
+
+                // --- DÉBUT DE LA LOGIQUE DE MODALE WHATSAPP MISE À JOUR ---
+                (function () {
+        const reserveButtons = document.querySelectorAll('.js-reserve');
+                const modal = document.getElementById('checkout-modal');
+                const closeBtn = document.getElementById('checkout-close');
+                const cancelBtn = document.getElementById('checkout-cancel');
+                const summary = document.getElementById('checkout-summary');
+                const priceEl = document.getElementById('checkout-price');
+                const form = document.getElementById('checkout-form');
+
+                // Variables de stockage temporaire du pack et prix
+                let currentPackName = '';
+                let currentPrice = '';
+
+                // 🎯 VOTRE NUMÉRO DE TÉLÉPHONE WHATSAPP FORMATÉ :
+                const WHATSAPP_NUMBER = '212772754051';
+
+                function openModal(packName, price) {
+                    currentPackName = packName; // Stocke le nom du pack
+                currentPrice = price; // Stocke le prix
+                summary.textContent = 'Pack sélectionné: ' + packName;
+                priceEl.textContent = 'Prix: ' + price + ' MAD';
+                modal.classList.remove('hidden');
+                modal.style.display = 'flex';
+                document.body.style.overflow = 'hidden';
+            setTimeout(() => document.getElementById('client-name').focus(), 120);
+        }
+
+                function closeModal() {
+                    modal.classList.add('hidden');
+                modal.style.display = 'none';
+                document.body.style.overflow = '';
+                form.reset(); // Réinitialise le formulaire
+        }
+
+        // Logique d'ouverture de la modale et détermination du prix
+        reserveButtons.forEach(btn => {
+                    btn.addEventListener('click', function (e) {
+                        e.preventDefault();
+                        const packName = this.getAttribute('data-pack');
+                        let price = '';
+                        // Logique de prix simple (ajustez ces prix)
+                        switch (packName) {
+                            case 'Branding':
+                                price = '2,000';
+                                break;
+                            case 'Vitrine':
+                                price = '4,500';
+                                break;
+                            case 'E-commerce':
+                                price = '8,000';
+                                break;
+                            default:
+                                price = 'Sur Devis';
+                        }
+                        openModal(packName, price);
+                    });
+        });
+
+                closeBtn.addEventListener('click', closeModal);
+                cancelBtn.addEventListener('click', closeModal);
+
+        modal.addEventListener('click', (e) => {
+            if (e.target === modal) {
+                    closeModal();
+            }
+        });
+
+
+                // 🚀 GESTION DE LA SOUMISSION DU FORMULAIRE ET REDIRECTION WHATSAPP
+                form.addEventListener('submit', function (e) {
+                    e.preventDefault(); // Stoppe la soumission HTTP normale
+
+                // 1. Récupération des données du formulaire
+                const name = document.getElementById('client-name').value;
+                const email = document.getElementById('client-email').value;
+                // Utiliser 'Non renseigné' si le champ est vide
+                const phone = document.getElementById('client-phone').value.trim() || 'Non renseigné';
+
+                const packName = currentPackName;
+                const price = currentPrice;
+
+                // 2. Construction du message (avec %0A pour les sauts de ligne)
+                let message = '🛎️ Nouvelle Réservation de Pack Novexa\n';
+                message += '---------------------------------\n';
+                message += `Pack: ${packName}\n`;
+                message += `Prix Indiqué: ${price} MAD\n`;
+                message += '---------------------------------\n';
+                message += `Client: ${name}\n`;
+                message += `Email: ${email}\n`;
+                message += `Tel: ${phone}\n`;
+                message += '---------------------------------\n';
+                message += 'Merci de confirmer le devis et les modalités de paiement.';
+
+                // 3. Encodage du message
+                const encodedMessage = encodeURIComponent(message);
+
+                // 4. Création et Redirection vers WhatsApp
+                const whatsappLink = `https://wa.me/${WHATSAPP_NUMBER}?text=${encodedMessage}`;
+
+            window.location.href = whatsappLink;
+
+            // La modale reste ouverte tant que l'utilisateur n'a pas quitté la page/l'onglet WhatsApp,
+            // ou vous pouvez la fermer immédiatement si vous préférez :
+            // closeModal();
+        });
+
+    })();
+    // --- FIN DE LA LOGIQUE DE MODALE WHATSAPP MISE À JOUR ---
+        </script>
+    </script>
+</body>
+
+</html>

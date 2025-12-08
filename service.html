@@ -1,0 +1,1291 @@
+<!doctype html>
+<html lang="fr">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Services — Novexa</title>
+    <meta name="description"
+        content="Services premium: création de site, e‑commerce, branding, SEO. Comparez nos packs, découvrez le process, et envoyez votre brief.">
+    <link rel="canonical" href="https://novexa.example.com/services.html">
+
+    <!-- Open Graph -->
+    <meta property="og:title" content="Novexa — Services">
+    <meta property="og:description"
+        content="Design minimal luxe, SEO technique, e‑commerce fluide. Comparez, planifiez, lancez.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://novexa.example.com/services.html">
+    <meta property="og:image" content="https://novexa.example.com/assets/images/og-cover.jpg">
+    <meta name="twitter:card" content="summary_large_image">
+
+    <!-- Favicons -->
+    <link rel="icon" href="/assets/icons/favicon.ico">
+    <link rel="apple-touch-icon" href="/assets/icons/apple-touch-icon.png">
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <style>
+        /* =========================================================
+Novexa — Feuille de style complète (navy blue, minimal luxe)
+Couvre: header, hero, grilles, cartes, packs, services,
+comparatif, timeline, FAQ, brief form, footer, mobile nav
+========================================================= */
+
+        /* -------------------------
+Variables de thème
+------------------------- */
+        :root {
+            --navy: #0A1F44;
+            --navy-deep: #081835;
+            --ivory: #F7F4EE;
+            --muted: #D9D7D3;
+            --gold: #C9A96A;
+            --line: #15264A;
+            --card: #0D1A3A;
+            --glass: rgba(255, 255, 255, 0.03);
+
+            --max-width: 1100px;
+            --container-pad: 24px;
+
+            --radius-sm: 8px;
+            --radius-md: 12px;
+            --radius-lg: 16px;
+
+            --transition-fast: 160ms;
+            --transition-medium: 260ms;
+
+            --touch-size: 48px;
+        }
+
+        /* -------------------------
+Reset léger et base
+------------------------- */
+        * {
+            box-sizing: border-box
+        }
+
+        html {
+            font-family: Inter, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+            scroll-behavior: smooth
+        }
+
+        body {
+            margin: 0;
+            background: var(--navy);
+            color: var(--ivory);
+            line-height: 1.6;
+            font-size: 16px
+        }
+
+        img,
+        picture,
+        svg {
+            max-width: 100%;
+            height: auto;
+            display: block
+        }
+
+        a {
+            color: inherit;
+            text-decoration: none
+        }
+
+        button {
+            font: inherit
+        }
+
+        .container {
+            max-width: var(--max-width);
+            margin: 0 auto;
+            padding: 0 var(--container-pad)
+        }
+
+        /* Accessibility focus */
+        :focus {
+            outline: 3px solid rgba(201, 169, 106, 0.18);
+            outline-offset: 3px
+        }
+
+        a:focus,
+        button:focus,
+        input:focus,
+        select:focus,
+        textarea:focus {
+            outline: 3px solid rgba(201, 169, 106, 0.18);
+            outline-offset: 3px
+        }
+
+        /* -------------------------
+Header and navigation
+------------------------- */
+        .site-header {
+            position: sticky;
+            top: 0;
+            z-index: 60;
+            background: linear-gradient(180deg, rgba(10, 31, 68, 0.75), rgba(10, 31, 68, 0.55));
+            border-bottom: 1px solid var(--line);
+            backdrop-filter: blur(6px) saturate(1.05);
+        }
+
+        .header-inner {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            height: 72px;
+            gap: 16px
+        }
+
+        .brand img {
+            height: 36px;
+            display: block
+        }
+
+        .nav-list {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            gap: 18px;
+            align-items: center
+        }
+
+        .nav-list a {
+            padding: 8px 10px;
+            border-radius: 8px;
+            transition: background var(--transition-fast), color var(--transition-fast)
+        }
+
+        .nav-list a:hover {
+            background: var(--glass)
+        }
+
+        .btn-link {
+            border: 1px solid var(--line);
+            padding: 8px 12px;
+            border-radius: 8px
+        }
+
+        /* Hamburger for mobile */
+        .hamburger {
+            display: none;
+            align-items: center;
+            justify-content: center;
+            width: 44px;
+            height: 44px;
+            border-radius: 10px;
+            border: 1px solid var(--line);
+            background: transparent;
+            color: var(--ivory);
+            cursor: pointer;
+        }
+
+        .hamburger .bar {
+            position: relative;
+            width: 20px;
+            height: 2px;
+            background: var(--ivory);
+            display: block
+        }
+
+        .hamburger .bar::before,
+        .hamburger .bar::after {
+            content: "";
+            position: absolute;
+            left: 0;
+            width: 20px;
+            height: 2px;
+            background: var(--ivory);
+        }
+
+        .hamburger .bar::before {
+            top: -6px
+        }
+
+        .hamburger .bar::after {
+            top: 6px
+        }
+
+        .hamburger.open .bar {
+            background: transparent
+        }
+
+        .hamburger.open .bar::before {
+            transform: translateY(6px) rotate(45deg)
+        }
+
+        .hamburger.open .bar::after {
+            transform: translateY(-6px) rotate(-45deg)
+        }
+
+        .hamburger.open .bar::before,
+        .hamburger.open .bar::after {
+            transition: transform var(--transition-medium)
+        }
+
+        /* Mobile nav overlay */
+        .mobile-nav-overlay {
+            position: fixed;
+            inset: 0;
+            background: linear-gradient(180deg, rgba(10, 31, 68, 0.98), rgba(8, 24, 53, 0.98));
+            z-index: 120;
+            padding: 88px 20px 40px;
+            display: none;
+            overflow: auto;
+        }
+
+        .mobile-nav-overlay.open {
+            display: block
+        }
+
+        .mobile-nav-overlay .nav-list {
+            flex-direction: column;
+            gap: 18px
+        }
+
+        .mobile-nav-overlay .nav-list a {
+            font-size: 1.05rem;
+            padding: 12px;
+            border-radius: 10px
+        }
+
+        /* -------------------------
+Hero
+------------------------- */
+        .hero {
+            padding: 88px 0 48px;
+            background:
+                radial-gradient(900px 360px at 10% 0%, rgba(201, 169, 106, 0.08), transparent 40%),
+                linear-gradient(180deg, rgba(13, 26, 58, 0.28), rgba(10, 31, 68, 0.0) 50%);
+        }
+
+        .hero-inner {
+            max-width: 920px
+        }
+
+        .hero-title {
+            font-family: "Playfair Display", serif;
+            font-size: clamp(28px, 5vw, 48px);
+            margin: 0 0 12px;
+            line-height: 1.02
+        }
+
+        .hero-subtitle {
+            color: var(--muted);
+            margin: 0 0 18px;
+            max-width: 720px
+        }
+
+        .hero-cta {
+            display: flex;
+            gap: 12px;
+            flex-wrap: wrap
+        }
+
+        /* -------------------------
+Value strip and badges
+------------------------- */
+        .value-strip {
+            padding: 20px 0;
+            border-top: 1px solid var(--line);
+            border-bottom: 1px solid var(--line)
+        }
+
+        .value-grid {
+            display: grid;
+            grid-template-columns: repeat(5, 1fr);
+            gap: 12px
+        }
+
+        .value-item {
+            background: var(--card);
+            border: 1px solid var(--line);
+            padding: 10px;
+            border-radius: var(--radius-sm);
+            text-align: center
+        }
+
+        .value-item span {
+            color: var(--muted);
+            font-weight: 600;
+            font-size: 0.95rem
+        }
+
+        /* -------------------------
+Cards, grids, products
+------------------------- */
+        .cards {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 16px
+        }
+
+        .card {
+            background: var(--card);
+            border: 1px solid var(--line);
+            border-radius: var(--radius-md);
+            padding: 18px;
+            min-height: 150px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between
+        }
+
+        .card h3 {
+            margin: 0 0 8px;
+            font-family: "Playfair Display", serif
+        }
+
+        .card p {
+            margin: 0;
+            color: var(--muted)
+        }
+
+        .pack-features {
+            margin: 8px 0 0;
+            padding-left: 18px;
+            color: var(--muted)
+        }
+
+        .pack-cta {
+            display: flex;
+            gap: 10px;
+            margin-top: 12px
+        }
+
+        /* Categories grid */
+        .categories-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 16px
+        }
+
+        .cat-card {
+            border: 1px solid var(--line);
+            border-radius: var(--radius-md);
+            overflow: hidden;
+            background: var(--card);
+            display: flex;
+            flex-direction: column
+        }
+
+        .cat-card img {
+            aspect-ratio: 4/3;
+            object-fit: cover
+        }
+
+        .cat-info {
+            padding: 12px
+        }
+
+        .cat-info h3 {
+            margin: 0;
+            font-family: "Playfair Display", serif
+        }
+
+        .cat-info span {
+            color: var(--muted)
+        }
+
+        /* Product grid */
+        .product-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 16px
+        }
+
+        .product-card {
+            border: 1px solid var(--line);
+            border-radius: var(--radius-md);
+            overflow: hidden;
+            background: var(--card);
+            display: flex;
+            flex-direction: column
+        }
+
+        .product-media img {
+            aspect-ratio: 4/3;
+            object-fit: cover
+        }
+
+        .product-info {
+            padding: 12px
+        }
+
+        .product-title {
+            margin: 0 0 6px 0;
+            font-family: "Playfair Display", serif
+        }
+
+        .product-price {
+            margin: 0 0 10px 0;
+            color: var(--muted)
+        }
+
+        .add-to-cart {
+            width: 100%;
+            padding: 10px;
+            border-radius: 8px
+        }
+
+        /* Testimonials */
+        .testi-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 16px
+        }
+
+        .testi {
+            border: 1px solid var(--line);
+            border-radius: var(--radius-md);
+            padding: 16px;
+            background: var(--card);
+            color: var(--muted)
+        }
+
+        .testi cite {
+            display: block;
+            margin-top: 10px;
+            color: var(--ivory)
+        }
+
+        /* CTA strip */
+        .cta-strip {
+            padding: 44px 0;
+            border-top: 1px solid var(--line);
+            background: linear-gradient(180deg, rgba(201, 169, 106, 0.06),
+                    rgba(10, 31, 68, 0))
+        }
+
+        .cta-inner {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 16px
+        }
+
+        .cta-inner h2 {
+            font-family: "Playfair Display", serif;
+            margin: 0
+        }
+
+        /* -------------------------
+Services layout and TOC
+------------------------- */
+        .services-layout {
+            display: grid;
+            grid-template-columns: 280px 1fr;
+            gap: 24px
+        }
+
+        .toc {
+            position: sticky;
+            top: 88px;
+            background: var(--card);
+            border: 1px solid var(--line);
+            border-radius: var(--radius-md);
+            padding: 14px
+        }
+
+        .toc h3 {
+            margin: 0 0 8px;
+            font-family: "Playfair Display", serif
+        }
+
+        .toc ul {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+            display: grid;
+            gap: 8px
+        }
+
+        .toc a {
+            color: var(--muted);
+            display: inline-block;
+            padding: 6px;
+            border-radius: 8px
+        }
+
+        .toc a:hover {
+            color: var(--ivory);
+            background: linear-gradient(90deg, rgba(201, 169, 106, 0.04), transparent)
+        }
+
+        /* Section block */
+        .section-block {
+            background: var(--card);
+            border: 1px solid var(--line);
+            border-radius: var(--radius-md);
+            padding: 18px;
+            margin-bottom: 18px
+        }
+
+        /* -------------------------
+Compare table
+------------------------- */
+        .compare-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 8px
+        }
+
+        .compare-table th,
+        .compare-table td {
+            border: 1px solid var(--line);
+            padding: 12px;
+            text-align: left;
+            vertical-align: top
+        }
+
+        .compare-table th {
+            background: linear-gradient(180deg, rgba(201, 169, 106, 0.06), rgba(10, 31, 68, 0));
+
+            font-family: "Playfair
+        Display",serif}
+ .compare-table td {
+            color: var(--muted)
+        }
+
+        .compare-table tbody tr:nth-child(even) {
+            background: rgba(201, 169, 106, 0.02)
+        }
+
+        /* -------------------------
+
+/* Variante mise en avant */
+.badge.best {
+  border-color: var(--gold);
+  background: linear-gradient(180deg, rgba(201,169,106,0.06), transparent);
+  color: var(--ivory);
+}
+
+/* Hover / focus (utile si badge est interactif) */
+.badge:hover,
+.badge:focus {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 18px rgba(2,6,23,0.18);
+  outline: none;
+}
+
+/* Si le badge est cliquable (utiliser <button> ou <a> pour accessibilité) */
+.badge--clickable { cursor: pointer; }
+.badge--clickable:focus { outline: 3px solid rgba(201,169,106,0.18); outline-offset: 3px; }
+
+            .badge.best {
+                border-color: var(--gold);
+                background: linear-gradient(180deg, rgba(201, 169, 106, 0.06),
+                        transparent);
+                color: var(--ivory)
+            }
+
+            /* -------------------------
+Timeline
+------------------------- */
+            .timeline {
+                display: grid;
+                grid-template-columns: repeat(3, 1fr);
+                gap: 12px
+            }
+
+            .step {
+                border: 1px solid var(--line);
+                border-radius: var(--radius-md);
+                padding: 14px;
+                background: var(--card)
+            }
+
+            .step h4 {
+                margin: 0 0 6px;
+                font-family: "Playfair Display", serif;
+                color: var(--gold)
+            }
+
+            .step p {
+                margin: 0;
+                color: var(--muted)
+            }
+
+            /* -------------------------
+FAQ accordion
+------------------------- */
+            .faq {
+                display: grid;
+                gap: 12px
+            }
+
+            .faq-item {
+                border: 1px solid var(--line);
+                border-radius: var(--radius-md);
+                overflow: hidden;
+                background: var(--card)
+            }
+
+            .faq-btn {
+                width: 100%;
+                text-align: left;
+                background: transparent;
+                color: var(--ivory);
+                border: 0;
+                padding: 14px;
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                cursor: pointer
+            }
+
+            .faq-content {
+                display: none;
+                padding: 0 14px 14px;
+                color: var(--muted);
+                border-top: 1px solid var(--line)
+            }
+
+            .faq-item[open] .faq-content {
+                display: block
+            }
+
+            /* -------------------------
+Brief form
+------------------------- */
+            .brief-form {
+                display: grid;
+                grid-template-columns: 1fr 1fr;
+                gap: 16px
+            }
+
+            .brief-form .row {
+                display: flex;
+                flex-direction: column;
+                gap: 6px
+            }
+
+            .brief-form .row:nth-child(5),
+            .brief-form .row:nth-child(6) {
+                grid-column: 1/-1
+            }
+
+            label {
+                font-weight: 600
+            }
+
+            input,
+            select,
+            textarea {
+                background: #0E1836;
+                color: var(--ivory);
+                border: 1px solid var(--line);
+                border-radius: 10px;
+                padding: 12px;
+                font: inherit
+            }
+
+            input:focus,
+            select:focus,
+            textarea:focus {
+                border-color: var(--gold);
+                box-shadow: 0 6px 18px rgba(201, 169, 106, 0.06)
+            }
+
+            .form-help {
+                color: var(--muted);
+                font-size: 0.95rem;
+                margin-top: 6px
+            }
+
+            /* -------------------------
+Footer
+------------------------- */
+            .site-footer {
+                border-top: 1px solid var(--line);
+                padding: 24px 0;
+                background: linear-gradient(180deg, rgba(8, 24, 53, 0.9),
+                        rgba(8, 24, 53, 0.95))
+            }
+
+            .footer-inner {
+                display: flex;
+                align-items: center;
+                justify-content: space-between;
+                gap: 12px
+            }
+
+            .site-footer nav {
+                display: flex;
+                gap: 18px
+            }
+
+            .site-footer a {
+                color: var(--muted)
+            }
+
+            /* -------------------------
+Micro interactions and utilities
+------------------------- */
+            .card,
+            .product-card,
+            .cat-card,
+            .pack-card {
+                transition: transform var(--transition-fast), box-shadow var(--transition-fast), border-color var(--transition-fast)
+            }
+
+            .card:hover,
+            .product-card:hover,
+            .cat-card:hover,
+            .pack-card:hover {
+                transform: translateY(-6px);
+                box-shadow: 0 10px 30px rgba(2, 6, 23, 0.45);
+                border-color: rgba(201, 169, 106, 0.12)
+            }
+
+            .btn {
+                display: inline-flex;
+                align-items: center;
+                gap: 8px;
+                cursor: pointer
+            }
+
+            .btn.primary {
+                background: var(--gold);
+                color: #111;
+                border-color: transparent
+            }
+
+            .btn.ghost {
+                background: transparent;
+                border: 1px solid var(--line);
+                color: var(--ivory)
+            }
+
+            .small {
+                font-size: 0.9rem;
+                color: var(--muted)
+            }
+
+            .kicker {
+                font-size: 0.85rem;
+                color: var(--muted);
+                text-transform: uppercase;
+                letter-spacing: 0.08em
+            }
+
+            /* Utility helpers */
+            .hidden {
+                display: none !important
+            }
+
+            .center {
+                display: flex;
+                align-items: center;
+                justify-content: center
+            }
+
+            .stack {
+                display: flex;
+                flex-direction: column;
+                gap: 12px
+            }
+
+            /* -------------------------
+Responsive rules
+------------------------- */
+            @media (max-width:980px) {
+
+                .cards,
+                .product-grid,
+                .categories-grid,
+                .testi-grid,
+                .cards {
+                    grid-template-columns: repeat(2, 1fr)
+                }
+
+                .timeline {
+                    grid-template-columns: repeat(2, 1fr)
+                }
+
+                .services-layout {
+                    grid-template-columns: 1fr
+                }
+
+                .toc {
+                    position: static;
+                    order: 2;
+                    margin-top: 12px
+                }
+
+                .hero {
+                    padding: 64px 0 36px
+                }
+
+                .hero-title {
+                    font-size: clamp(24px, 6vw, 36px)
+                }
+
+                .value-grid {
+                    grid-template-columns: repeat(3, 1fr)
+                }
+
+                .brief-form {
+                    grid-template-columns: 1fr
+                }
+
+                .compare-table th,
+                .compare-table td {
+                    font-size: 0.95rem;
+                    padding: 10px
+                }
+            }
+
+            /* Mobile first adjustments */
+            @media (max-width:760px) {
+                html {
+                    font-size: 15px
+                }
+
+                .nav-list {
+                    display: none
+                }
+
+                .hamburger {
+                    display: flex
+                }
+
+                .mobile-only {
+                    display: block
+                }
+
+                .value-grid {
+                    grid-template-columns: repeat(2, 1fr)
+                }
+
+                .categories-grid,
+                .product-grid,
+                .cards,
+                .pack-grid,
+                .testi-grid {
+                    grid-template-columns: 1fr;
+                    gap: 14px
+                }
+
+                .hero {
+                    padding: 56px 0 28px
+                }
+
+                .hero-subtitle {
+                    font-size: 0.95rem
+                }
+
+                .btn {
+                    padding: 12px 14px;
+                    border-radius: 10px
+                }
+
+                .btn.primary {
+                    width: 100%
+                }
+
+                .toc {
+                    display: block
+                }
+
+                .cta-inner {
+                    flex-direction: column;
+                    align-items: stretch;
+                    gap: 12px
+                }
+
+                .product-media img,
+                .cat-card img {
+                    aspect-ratio: 16/10;
+                    object-fit: cover
+                }
+
+                .skip-link:focus {
+                    left: 12px
+                }
+            }
+
+            /* Very small screens */
+            @media (max-width:420px) {
+                .hero {
+                    padding: 48px 0 20px
+                }
+
+                .hero-title {
+                    font-size: 20px
+                }
+
+                .value-grid {
+                    grid-template-columns: 1fr 1fr
+                }
+
+                .header-inner {
+                    padding: 8px 12px
+                }
+
+                .container {
+                    padding: 0 12px
+                }
+
+                .brief-form {
+                    grid-template-columns: 1fr
+                }
+
+                input,
+                select,
+                textarea {
+                    padding: 10px
+                }
+
+                .btn {
+                    padding: 12px
+                }
+            }
+
+            /* -------------------------
+Print styles
+------------------------- */
+            @media print {
+                body {
+                    background: #fff;
+                    color: #000
+                }
+
+                .site-header,
+                .site-footer,
+                .cta-strip,
+                .mobile-nav-overlay,
+                .hamburger {
+                    display: none
+                }
+
+                .container {
+                    max-width: 100%;
+                    padding: 0
+                }
+
+                a::after {
+                    content: " (" attr(href) ")";
+                    font-size: 0.85em
+                }
+            }
+    </style>
+</head>
+
+<body>
+        <!-- Header -->
+    <header class="site-header" aria-label="En-tête du site">
+        <div class="container header-inner">
+            <a class="brand" href="/" aria-label="Accueil Novexa">
+                <img src="Capture d'écran 2025-12-04 160900.png" alt="Novexa" width="120" height="32">
+            </a>
+            <nav class="nav" aria-label="Navigation principale">
+                <ul class="nav-list">
+                    <li><a href="novexa.html">Accueil</a></li>
+                    <li><a href="service.html" aria-current="page">Services</a></li>
+                    <li><a href="packs.html">Packs</a></li>
+                    <li><a href="portfolio.html">Portfolio</a></li>
+                    <li><a href="process.html">Process</a></li>
+                    <li><a href="blog.html">Blog</a></li>
+                    <li><a href="contact.html" class="btn-link">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main id="main">
+        <!-- Hero -->
+        <section class="hero" aria-label="Présentation des services">
+            <div class="container hero-inner">
+                <h1 class="hero-title">Services taillés pour la conversion</h1>
+                <p class="hero-subtitle">Création de site, e‑commerce, branding et SEO. Compare, choisis, et envoie ton
+                    brief—sans perdre de temps.</p>
+                <div class="hero-cta">
+                    <a href="#compare" class="btn primary">Comparer les packs</a>
+                    <a href="#brief" class="btn ghost">Envoyer un brief</a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Layout: toc + content -->
+        <section class="section">
+            <div class="container services-layout">
+                <aside class="toc" aria-label="Sommaire">
+                    <h3>Sommaire</h3>
+                    <ul>
+                        <li><a href="#compare">Comparatif des packs</a></li>
+                        <li><a href="#details">Détails des services</a></li>
+                        <li><a href="#process">Process & délais</a></li>
+                        <li><a href="#faq">FAQ</a></li>
+                        <li><a href="#brief">Brief rapide</a></li>
+                    </ul>
+                </aside>
+
+                <div>
+                    <!-- Compare -->
+                    <div id="compare" class="section-block" aria-labelledby="compare-title">
+                        <h2 id="compare-title">Comparatif des packs</h2>
+                        <table class="compare-table" aria-describedby="compare-note">
+                            <thead>
+                                <tr>
+                                    <th>Pack</th>
+                                    <th>Pour qui</th>
+                                    <th>Livrables</th>
+                                    <th>Délais</th>
+                                    <th>Prix</th>
+                                    <th>CTA</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td><span class="badge">Vitrine</span></td>
+                                    <td>Premiers clients, présence claire</td>
+                                    <td>5 pages, branding léger, SEO de base</td>
+                                    <td>7–12 jours</td>
+                                    <td>5 900 MAD</td>
+                                    <td><a href="/checkout.html?pack=vitrine" class="btn">Réserver</a></td>
+                                </tr>
+                                <tr>
+                                    <td><span class="badge best">E‑commerce</span></td>
+                                    <td>Boutique de services, conversion</td>
+                                    <td>Boutique, fiches pack, panier, checkout</td>
+                                    <td>12–18 jours</td>
+                                    <td>9 800 MAD</td>
+                                    <td><a href="/checkout.html?pack=ecommerce" class="btn primary">Réserver</a></td>
+                                </tr>
+                                <tr>
+                                    <td><span class="badge">Branding</span></td>
+                                    <td>Identité nette et réutilisable</td>
+                                    <td>Palette, typos, kit UI, guidelines</td>
+                                    <td>5–8 jours</td>
+                                    <td>4 500 MAD</td>
+                                    <td><a href="/checkout.html?pack=branding" class="btn">Réserver</a></td>
+                                </tr>
+                                <tr>
+                                    <td><span class="badge">SEO Tech</span></td>
+                                    <td>Trafic organique, propreté technique</td>
+                                    <td>Audit, schema, perfs, accessibilité</td>
+                                    <td>6–10 jours</td>
+                                    <td>3 900 MAD</td>
+                                    <td><a href="/checkout.html?pack=seo" class="btn">Réserver</a></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                        <p id="compare-note" class="form-help" style="margin-top:8px;color:var(--muted)">Prix
+                            indicatifs—devis sur mesure selon périmètre.</p>
+                    </div>
+
+                    <!-- Details -->
+                    <div id="details" class="section-block" aria-labelledby="details-title">
+                        <h2 id="details-title">Détails des services</h2>
+                        <div class="cards">
+                            <article class="card">
+                                <h3>Création de site</h3>
+                                <p>Structure sémantique, design navy blue minimal luxe, performance et accessibilité.
+                                </p>
+                                <ul class="pack-features">
+                                    <li>UI propre (header/footer, composants)</li>
+                                    <li>Pages essentielles (Accueil, Services, À propos, Blog, Contact)</li>
+                                    <li>Mesures (Core Web Vitals)</li>
+                                </ul>
+                                <div class="pack-cta">
+                                    <a href="/packs.html#vitrine" class="btn primary">Choisir Vitrine</a>
+                                    <a href="/portfolio.html" class="btn ghost">Voir exemples</a>
+                                </div>
+                            </article>
+
+                            <article class="card">
+                                <h3>E‑commerce de services</h3>
+                                <p>Packs “productisés” avec panier/checkout, upsell et suivi conversion.</p>
+                                <ul class="pack-features">
+                                    <li>Fiches pack + comparatif</li>
+                                    <li>Checkout Stripe/CMI/PayPal</li>
+                                    <li>RGPD et analytics légers</li>
+                                </ul>
+                                <div class="pack-cta">
+                                    <a href="/packs.html#ecommerce" class="btn primary">Choisir E‑commerce</a>
+                                    <a href="/process.html" class="btn ghost">Voir le process</a>
+                                </div>
+                            </article>
+
+                            <article class="card">
+                                <h3>Branding web</h3>
+                                <p>Palette, typos, micro‑interactions, ton éditorial. Cohérence durable.</p>
+                                <ul class="pack-features">
+                                    <li>Logo simple + système de couleurs</li>
+                                    <li>Kit UI réutilisable</li>
+                                    <li>Guide d’usage</li>
+                                </ul>
+                                <div class="pack-cta">
+                                    <a href="/packs.html#branding" class="btn primary">Choisir Branding</a>
+                                    <a href="/portfolio.html" class="btn ghost">Voir identités</a>
+                                </div>
+                            </article>
+
+                            <article class="card">
+                                <h3>SEO technique</h3>
+                                <p>Balisage, schema.org, perfs, accessibilité, indexation propre.</p>
+                                <ul class="pack-features">
+                                    <li>Audit + plan d’action</li>
+                                    <li>Données structurées</li>
+                                    <li>Optimisation CWV</li>
+                                </ul>
+                                <div class="pack-cta">
+                                    <a href="/packs.html#seo" class="btn primary">Choisir SEO Tech</a>
+                                    <a href="/blog.html" class="btn ghost">Lire nos guides</a>
+                                </div>
+                            </article>
+                        </div>
+                    </div>
+
+                    <!-- Process -->
+                    <div id="process" class="section-block" aria-labelledby="process-title">
+                        <h2 id="process-title">Process & délais</h2>
+                        <div class="timeline">
+                            <div class="step">
+                                <h4>1. Cadrage</h4>
+                                <p>Objectifs, audience, périmètre. Brief rapide.</p>
+                            </div>
+                            <div class="step">
+                                <h4>2. Architecture</h4>
+                                <p>Sitemap, wireframes, palettes/typos.</p>
+                            </div>
+                            <div class="step">
+                                <h4>3. Design</h4>
+                                <p>Maquettes, composants, copies.</p>
+                            </div>
+                            <div class="step">
+                                <h4>4. Intégration</h4>
+                                <p>Code propre, SEO, accessibilité.</p>
+                            </div>
+                            <div class="step">
+                                <h4>5. Tests</h4>
+                                <p>Qualité, perfs, analytics, RGPD.</p>
+                            </div>
+                            <div class="step">
+                                <h4>6. Mise en ligne</h4>
+                                <p>Déploiement + suivi et améliorations.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- FAQ -->
+                    <div id="faq" class="section-block" aria-labelledby="faq-title">
+                        <h2 id="faq-title">FAQ</h2>
+                        <div class="faq" role="list">
+                            <div class="faq-item" role="listitem">
+                                <button class="faq-btn" aria-expanded="false">
+                                    Délais typiques ?
+                                    
+                                </button>
+                                <div class="faq-content">
+                                    Vitrine: 7–12 jours. E‑commerce: 12–18 jours. Branding: 5–8 jours. SEO: 6–10 jours.
+                                </div>
+                            </div>
+                            <div class="faq-item" role="listitem">
+                                <button class="faq-btn" aria-expanded="false">
+                                    Paiements acceptés ?
+                                    
+                                </button>
+                                <div class="faq-content">
+                                    Stripe, CMI, PayPal, virement. Possibilité d’acompte + solde.
+                                </div>
+                            </div>
+                            <div class="faq-item" role="listitem">
+                                <button class="faq-btn" aria-expanded="false">
+                                    Ce qui est inclus ?
+                                    
+                                </button>
+                                <div class="faq-content">
+                                    Livrables définis, code propre, optimisation de base, transfert et mini‑guide.
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Brief -->
+                    <div id="brief" class="section-block" aria-labelledby="brief-title">
+                        <h2 id="brief-title">Brief rapide</h2>
+                        <form class="brief-form">
+                            <div class="row">
+                                <label for="nom">Nom</label>
+                                <input id="nom" name="nom" type="text" required placeholder="Votre nom">
+                            </div>
+                            <div class="row">
+                                <label for="email">Email</label>
+                                <input id="email" name="email" type="email" required placeholder="vous@exemple.com">
+                            </div>
+                            <div class="row">
+                                <label for="service">Service</label>
+                                <select id="service" name="service" required>
+                                    <option value="">Choisir…</option>
+                                    <option>Création de site</option>
+                                    <option>E‑commerce</option>
+                                    <option>Branding</option>
+                                    <option>SEO technique</option>
+                                </select>
+                            </div>
+                            <div class="row">
+                                <label for="budget">Budget estimé</label>
+                                <select id="budget" name="budget" required>
+                                    <option value="">Choisir…</option>
+                                    <option>3 000–6 000 MAD</option>
+                                    <option>6 000–10 000 MAD</option>
+                                    <option>10 000–20 000 MAD</option>
+                                </select>
+                            </div>
+                            <div class="row">
+                                <label for="message">Contexte & objectifs</label>
+                                <textarea id="message" name="message" rows="5"
+                                    placeholder="Décrivez votre projet, l’audience, l’échéance…"></textarea>
+                                <p class="hint">Nous répondons sous 48h avec une proposition claire.</p>
+                            </div>
+                            <div class="row">
+                                <button type="submit" class="btn primary">Envoyer le brief</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="site-footer" aria-label="Pied de page">
+        <div class="container footer-inner">
+            <small>© <span id="year"></span> Novexa. Tous droits réservés.</small>
+            <nav aria-label="Liens secondaires">
+                <a href="/apropos.html">À propos</a>
+                <a href="/process.html">Process</a>
+                <a href="/contact.html">Contact</a>
+                <a href="/cgv.html">CGV</a>
+            </nav>
+        </div>
+    </footer>
+
+    <script>
+        document.getElementById('year').textContent = new Date().getFullYear();
+
+        // Accordéon FAQ
+        document.querySelectorAll('.faq-item').forEach(item => {
+            const btn = item.querySelector('.faq-btn');
+            btn.addEventListener('click', () => {
+                const open = item.hasAttribute('open');
+                document.querySelectorAll('.faq-item').forEach(i => {
+                    i.removeAttribute('open');
+                    i.querySelector('.faq-btn').setAttribute('aria-expanded', 'false');
+                });
+                if (!open) {
+                    item.setAttribute('open', '');
+                    btn.setAttribute('aria-expanded', 'true');
+                }
+            });
+        });
+
+        // TODO: brancher le brief (Formspree / Netlify / backend léger)
+    </script>
+</body>
+
+</html>

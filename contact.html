@@ -1,0 +1,323 @@
+<!doctype html>
+<html lang="fr">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>Contact — Novexa</title>
+    <meta name="description"
+        content="Contactez Novexa pour un devis, une question ou un accompagnement sur votre projet web, branding ou SEO." />
+    <link rel="canonical" href="https://novexa.example.com/contact.html" />
+    <meta name="theme-color" content="#0A1F44">
+
+    <!-- Fonts -->
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&family=Playfair+Display:wght@400;600&display=swap"
+        rel="stylesheet">
+
+  <style>
+    :root {
+  --navy: #0A1F44;
+  --ivory: #F7F4EE;
+  --muted: #D9D7D3;
+  --gold: #C9A96A;
+  --line: #15264A;
+  --card: #0D1A3A;
+  --container: 1100px;
+  --pad: 20px;
+  --radius: 12px;
+  --transition: 160ms;
+  --btn-radius: 10px;
+  --touch: 48px;
+}
+
+*{box-sizing:border-box}
+html{font-family:Inter,system-ui,-apple-system,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif;-webkit-font-smoothing:antialiased}
+body{margin:0;background:var(--navy);color:var(--ivory);line-height:1.6;-webkit-font-smoothing:antialiased}
+img,picture,svg{max-width:100%;height:auto;display:block;object-fit:cover;border-radius:2px}
+a{color:inherit;text-decoration:none}
+.container{max-width:var(--container);margin:0 auto;padding:0 var(--pad)}
+
+/* Header */
+.site-header{position:sticky;top:0;z-index:60;background:linear-gradient(180deg,rgba(10,31,68,0.88),rgba(10,31,68,0.65));border-bottom:1px solid var(--line);backdrop-filter:blur(6px)}
+.header-inner{display:flex;align-items:center;justify-content:space-between;height:72px;padding:0 var(--pad);gap:12px}
+.brand img{height:36px}
+.nav-list{list-style:none;margin:0;padding:0;display:flex;gap:16px;align-items:center}
+.nav-list a{padding:8px 10px;border-radius:8px;transition:background var(--transition)}
+.nav-list a:hover{background:rgba(255,255,255,0.02)}
+.hamburger{display:none}
+
+/* Hero */
+.hero{padding:64px 0 28px;background:radial-gradient(900px 360px at 10% 0%,rgba(201,169,106,0.06),transparent 40%),linear-gradient(180deg,rgba(13,26,58,0.22),rgba(10,31,68,0.0) 50%)}
+.kicker{font-size:0.85rem;color:var(--muted);text-transform:uppercase;letter-spacing:0.08em;margin:0 0 6px}
+.hero-title{font-family:"Playfair Display",serif;font-size:clamp(24px,5vw,40px);margin:8px 0}
+.hero-sub{color:var(--muted);max-width:720px;margin:0;font-size:clamp(0.9rem,2.5vw,1.05rem)} /* ✅ fluide */
+
+/* Layout */
+.contact-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:28px;padding:36px 0} /* ✅ fluide */
+.card{background:var(--card);border:1px solid var(--line);border-radius:var(--radius);padding:18px}
+
+/* Form */
+form .row{display:flex;flex-direction:column;margin-bottom:12px}
+label{font-weight:600;margin-bottom:6px;color:var(--ivory)}
+input,select,textarea{background:#0E1836;color:var(--ivory);border:1px solid var(--line);border-radius:10px;padding:12px;font:inherit}
+textarea{min-height:140px;resize:vertical}
+::placeholder{color:rgba(217,215,211,0.5)}
+.form-actions{display:flex;gap:12px;align-items:center;margin-top:8px;flex-wrap:wrap}
+.note{color:var(--muted);font-size:0.95rem;margin-top:12px}
+
+/* Contact info */
+.contact-info{display:flex;flex-direction:column;gap:12px}
+.info-item{display:flex;gap:12px;align-items:flex-start}
+.info-item strong{display:block;color:var(--ivory)}
+.map{border-radius:10px;overflow:hidden;border:1px solid var(--line);margin-top:8px}
+
+/* Buttons */
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;padding:12px 16px;border-radius:var(--btn-radius);font-weight:600;cursor:pointer;border:1px solid transparent;transition:transform var(--transition),box-shadow var(--transition);min-height:var(--touch)} /* ✅ tactile */
+.btn-primary{background:var(--gold);color:#111}
+.btn-primary:hover{transform:translateY(-3px)}
+.btn-ghost{background:#c9a96a;border:1px solid var(--line);color:black}
+.btn:focus-visible{outline:3px solid rgba(201,169,106,0.18);outline-offset:3px}
+
+/* Footer */
+.site-footer{border-top:1px solid var(--line);padding:20px 0;background:linear-gradient(180deg,rgba(8,24,53,0.9),rgba(8,24,53,0.95))}
+.footer-inner{display:flex;align-items:center;justify-content:space-between;gap:12px}
+.footer-inner a{color:var(--muted);margin-left:12px}
+
+/* Responsive */
+@media(max-width:760px){
+  .nav-list{display:none}
+  .hero{padding:48px 0}
+  .hero-title{font-size:clamp(22px,6vw,28px)}
+  .btn-primary{width:100%}
+}
+@media(max-width:420px){
+  .header-inner{padding:8px 12px}
+  .container{padding:0 12px}
+}
+
+/* Accessibility */
+:focus{outline:3px solid rgba(201,169,106,0.14);outline-offset:3px}
+.sr-only{position:absolute!important;height:1px;width:1px;overflow:hidden;clip:rect(1px,1px,1px,1px);white-space:nowrap;border:0;padding:0;margin:-1px}
+
+  </style>
+</head>
+
+<body>
+    <a class="sr-only" href="#main">Aller au contenu</a>
+
+    <header class="site-header" aria-label="En-tête du site">
+        <div class="container header-inner">
+            <a class="brand" href="novexa.html" aria-label="Accueil Novexa">
+                <img src="Capture d'écran 2025-12-04 160900.png" alt="Novexa">
+            </a>
+
+            <nav aria-label="Navigation principale">
+                <ul class="nav-list" id="main-nav">
+                    <li><a href="/">Accueil</a></li>
+                    <li><a href="service.html">Services</a></li>
+                    <li><a href="packs.html">Packs</a></li>
+                    <li><a href="portfolio.html">Portfolio</a></li>
+                    <li><a href="contact.html" aria-current="page">Contact</a></li>
+                    <li><a href="blog.html">Blog</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main id="main">
+        <section class="hero container" aria-label="Contact">
+            <p class="kicker">Contact</p>
+            <h1 class="hero-title">Parlons de votre projet</h1>
+            <p class="hero-sub">Demandez un devis, posez une question ou planifiez un rendez‑vous. Réponse sous 48h
+                ouvrées.</p>
+        </section>
+
+        <section class="container contact-grid" aria-label="Formulaire et informations de contact">
+            <div>
+                <div class="card" aria-labelledby="form-title">
+                    <h2 id="form-title" style="margin-top:0">Envoyer un message</h2>
+
+                    <form id="contact-form" novalidate>
+                        <div class="row">
+                            <label for="name">Nom complet</label>
+                            <input id="name" name="name" type="text" placeholder="Votre nom" required>
+                        </div>
+
+                        <div class="row">
+                            <label for="email">Email</label>
+                            <input id="email" name="email" type="email" placeholder="vous@exemple.com" required>
+                        </div>
+
+                        <div class="row">
+                            <label for="service">Service concerné</label>
+                            <select id="service" name="service">
+                                <option value="">Choisir…</option>
+                                <option value="site">Création de site</option>
+                                <option value="ecommerce">E‑commerce</option>
+                                <option value="branding">Branding</option>
+                                <option value="seo">SEO technique</option>
+                            </select>
+                        </div>
+
+                        <div class="row">
+                            <label for="budget">Budget estimé (optionnel)</label>
+                            <select id="budget" name="budget">
+                                <option value="">—</option>
+                                <option>3 000–6 000 MAD</option>
+                                <option>6 000–10 000 MAD</option>
+                                <option>10 000–20 000 MAD</option>
+                            </select>
+                        </div>
+
+                        <div class="row">
+                            <label for="message">Message</label>
+                            <textarea id="message" name="message"
+                                placeholder="Décrivez votre projet, objectifs et échéance" rows="6"></textarea>
+                        </div>
+
+                        <div class="form-actions">
+                            <button type="submit" class="btn btn-primary">Envoyer le message</button>
+                            <button type="button" id="book-call" class="btn btn-ghost">Planifier un appel</button>
+                        </div>
+
+                        <p class="note">En envoyant ce message, vous acceptez que nous utilisions vos informations pour
+                            vous répondre. Nous ne partageons pas vos données.</p>
+                    </form>
+                </div>
+
+                <div class="card" style="margin-top:18px">
+                    <h3 style="margin-top:0">Horaires & délai</h3>
+                    <p class="small">Réponse sous 48h ouvrées. Rendez‑vous disponibles du lundi au vendredi, 9h–18h.</p>
+                </div>
+            </div>
+
+            <aside>
+                <div class="card contact-info" aria-labelledby="info-title">
+                    <h3 id="info-title" style="margin-top:0">Nous joindre</h3>
+
+                    <div class="info-item">
+                        <div>
+                            <strong>Email</strong>
+                            <div class="small">contact@novexa.example</div>
+                        </div>
+                    </div>
+
+                    <div class="info-item">
+                        <div>
+                            <strong>Téléphone</strong>
+                            <div class="small">+212 6 00 00 00 00</div>
+                        </div>
+                    </div>
+
+                    <div class="info-item">
+                        <div>
+                            <strong>Adresse</strong>
+                            <div class="small"> Rabat-Salé-Kénitra, Maroc</div>
+                        </div>
+                    </div>
+
+                    <div style="margin-top:12px">
+                        <a class="btn btn-primary" href="mailto:contact@novexa.example">Envoyer un email</a>
+                    </div>
+                </div>
+
+            </aside>
+        </section>
+    </main>
+
+    <footer class="site-footer" aria-label="Pied de page">
+        <div class="container footer-inner">
+            <small>© <span id="year"></span> Novexa. Tous droits réservés.</small>
+            <nav aria-label="Liens secondaires">
+                <a href="blog.html">À propos</a>
+                
+            </nav>
+        </div>
+    </footer>
+
+    <script>
+        // Year
+        document.getElementById('year').textContent = new Date().getFullYear();
+
+        // Simple form handling (client-side simulation)
+        (function () {
+            const form = document.getElementById('contact-form');
+            const bookBtn = document.getElementById('book-call');
+
+            if (bookBtn) {
+                bookBtn.addEventListener('click', function () {
+                    const subject = encodeURIComponent('Demande de rendez-vous — Novexa');
+                    window.location.href = 'mailto:contact@novexa.example?subject=' + subject;
+                });
+            }
+
+            if (!form) return;
+            form.addEventListener('submit', function (e) {
+                e.preventDefault();
+                const submitBtn = form.querySelector('button[type="submit"]');
+                submitBtn.disabled = true;
+                submitBtn.textContent = 'Envoi…';
+
+                // Basic client-side validation
+                const name = document.getElementById('name').value.trim();
+                const email = document.getElementById('email').value.trim();
+                if (!name || !email) {
+                    alert('Merci de renseigner votre nom et votre email.');
+                    submitBtn.disabled = false;
+                    submitBtn.textContent = 'Envoyer le message';
+                    return;
+                }
+
+                // Simulate network request
+                setTimeout(() => {
+                    form.innerHTML = '<p style="font-weight:700;margin:0 0 8px">Merci — message envoyé.</p><p class="small" style="color:var(--muted)">Nous revenons vers vous sous 48h ouvrées.</p>';
+                }, 900);
+            });
+        })();
+    </script>
+</body>
+<script>
+   
+            document.getElementById('year').textContent = new Date().getFullYear();
+
+            (function () {
+        const form = document.getElementById('contact-form');
+            const bookBtn = document.getElementById('book-call');
+
+            if (bookBtn) {
+                bookBtn.addEventListener('click', function () {
+                    const subject = encodeURIComponent('Demande de rendez-vous — Novexa');
+                    window.location.href = 'mailto:contact@novexa.example?subject=' + subject;
+                });
+        }
+
+            if (!form) return;
+            form.addEventListener('submit', function (e) {
+                e.preventDefault();
+
+            const name = document.getElementById('name').value.trim();
+            const email = document.getElementById('email').value.trim();
+            const service = document.getElementById('service').value;
+            const budget = document.getElementById('budget').value;
+            const message = document.getElementById('message').value.trim();
+
+            if (!name || !email) {
+                alert('Merci de renseigner votre nom et votre email.');
+            return;
+            }
+
+            // Construire le texte du message WhatsApp
+            const text = `Bonjour, je suis ${name} (${email}).%0AService: ${service || "—"}%0ABudget: ${budget || "—"}%0AMessage: ${message || "—"}`;
+
+            // Remplace par ton numéro WhatsApp (format international sans + ni espaces)
+            const phone = "212772754051"; // Exemple : +212 6 00 00 00 00 → 212600000000
+
+            // Redirection vers WhatsApp
+            window.location.href = `https://wa.me/${phone}?text=${text}`;
+        });
+    })();
+    
+
+</script>
+</html>

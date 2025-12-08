@@ -1,0 +1,872 @@
+<!doctype html>
+<html lang="fr">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>Portfolio — Novexa</title>
+    <meta name="description"
+        content="Portfolio Novexa — études de cas : sites vitrines, e‑commerce de services, branding et SEO. Exemples réels, résultats et process." />
+    <link rel="canonical" href="https://novexa.example.com/portfolio.html" />
+
+    <!-- Fonts + main stylesheet -->
+<style>
+    /* =========================================================
+   Portfolio page — navy blue theme (optimisé)
+   Includes header, hero, filters, portfolio grid, case modal,
+   buttons, responsive + fluid grids/typo
+========================================================= */
+
+    /* Theme variables */
+    :root {
+        --navy: #0A1F44;
+        --ivory: #F7F4EE;
+        --muted: #D9D7D3;
+        --gold: #C9A96A;
+        --line: #15264A;
+        --card: #0D1A3A;
+        --glass: rgba(255, 255, 255, 0.03);
+
+        --max-width: 1100px;
+        --pad: 20px;
+        --radius-sm: 8px;
+        --radius-md: 12px;
+
+        --transition-fast: 160ms;
+        --transition-medium: 260ms;
+
+        --touch-size: 48px;
+    }
+
+    img {
+        border-radius: 2px;
+        height: auto;
+        object-fit: cover;
+    }
+
+    /* ✅ images fluides */
+
+    /* Reset & base */
+    * {
+        box-sizing: border-box
+    }
+
+    html {
+        font-family: Inter, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+        -webkit-font-smoothing: antialiased;
+        -moz-osx-font-smoothing: grayscale;
+        scroll-behavior: smooth
+    }
+
+    body {
+        margin: 0;
+        background: var(--navy);
+        color: var(--ivory);
+        line-height: 1.6;
+        font-size: 16px
+    }
+
+    img,
+    picture,
+    svg {
+        max-width: 100%;
+        height: auto;
+        display: block
+    }
+
+    a {
+        color: inherit;
+        text-decoration: none
+    }
+
+    .container {
+        max-width: var(--max-width);
+        margin: 0 auto;
+        padding: 0 var(--pad)
+    }
+
+    .hidden {
+        display: none !important
+    }
+
+    /* Accessibility focus */
+    :focus {
+        outline: 3px solid rgba(201, 169, 106, 0.14);
+        outline-offset: 3px
+    }
+
+    button:focus,
+    a:focus,
+    input:focus {
+        outline: 3px solid rgba(201, 169, 106, 0.14);
+        outline-offset: 3px
+    }
+
+    /* Header */
+    .site-header {
+        position: sticky;
+        top: 0;
+        z-index: 60;
+        background: linear-gradient(180deg, rgba(10, 31, 68, 0.88), rgba(10, 31, 68, 0.65));
+        border-bottom: 1px solid var(--line);
+        backdrop-filter: blur(6px) saturate(1.05);
+    }
+
+    .header-inner {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        height: 72px;
+        gap: 12px;
+        padding: 0 var(--pad)
+    }
+
+    .brand img {
+        height: 36px
+    }
+
+    .nav-list {
+        list-style: none;
+        margin: 0;
+        padding: 0;
+        display: flex;
+        gap: 16px;
+        align-items: center
+    }
+
+    .nav-list a {
+        padding: 8px 10px;
+        border-radius: 8px;
+        transition: background var(--transition-fast)
+    }
+
+    .nav-list a:hover {
+        background: var(--glass)
+    }
+
+    .hamburger {
+        display: none;
+        align-items: center;
+        justify-content: center;
+        width: 44px;
+        height: 44px;
+        border-radius: 10px;
+        border: 1px solid var(--line);
+        background: transparent;
+        color: var(--ivory);
+        cursor: pointer
+    }
+
+    .hamburger .bar {
+        position: relative;
+        width: 20px;
+        height: 2px;
+        background: var(--ivory);
+        display: block
+    }
+
+    .hamburger .bar::before,
+    .hamburger .bar::after {
+        content: "";
+        position: absolute;
+        left: 0;
+        width: 20px;
+        height: 2px;
+        background: var(--ivory)
+    }
+
+    .hamburger .bar::before {
+        top: -6px
+    }
+
+    .hamburger .bar::after {
+        top: 6px
+    }
+
+    .hamburger.open .bar {
+        background: transparent
+    }
+
+    .hamburger.open .bar::before {
+        transform: translateY(6px) rotate(45deg)
+    }
+
+    .hamburger.open .bar::after {
+        transform: translateY(-6px) rotate(-45deg)
+    }
+
+    /* Mobile nav overlay */
+    .mobile-nav-overlay {
+        position: fixed;
+        inset: 0;
+        background: linear-gradient(180deg, rgba(10, 31, 68, 0.98), rgba(8, 24, 53, 0.98));
+        z-index: 120;
+        padding: 88px 20px 40px;
+        display: none;
+        overflow: auto
+    }
+
+    .mobile-nav-overlay.open {
+        display: block
+    }
+
+    .mobile-nav-overlay .nav-list {
+        flex-direction: column;
+        gap: 18px
+    }
+
+    .mobile-nav-overlay .nav-list a {
+        font-size: 1.05rem;
+        padding: 12px;
+        border-radius: 10px
+    }
+
+    /* Hero */
+    .hero {
+        padding: 72px 0 36px;
+        background:
+            radial-gradient(900px 360px at 10% 0%, rgba(201, 169, 106, 0.06), transparent 40%),
+            linear-gradient(180deg, rgba(13, 26, 58, 0.22), rgba(10, 31, 68, 0.0) 50%)
+    }
+
+    .hero-inner {
+        max-width: 920px
+    }
+
+    .kicker {
+        font-size: 0.85rem;
+        color: var(--muted);
+        text-transform: uppercase;
+        letter-spacing: 0.08em
+    }
+
+    .hero-title {
+        font-family: "Playfair Display", serif;
+        font-size: clamp(24px, 5vw, 40px);
+        margin: 8px 0 12px;
+        line-height: 1.02
+    }
+
+    .hero-subtitle {
+        color: var(--muted);
+        margin: 0 0 18px;
+        max-width: 720px;
+        font-size: clamp(0.9rem, 2.5vw, 1.05rem);
+    }
+
+    /* ✅ fluide */
+    .hero-cta {
+        display: flex;
+        gap: 12px;
+        flex-wrap: wrap
+    }
+
+    /* Filters */
+    .section-header {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 12px;
+        margin-bottom: 12px
+    }
+
+    .filters {
+        display: flex;
+        gap: 10px;
+        flex-wrap: wrap
+    }
+
+    .filters .btn {
+        padding: 8px 12px;
+        border-radius: 10px;
+        font-weight: 600
+    }
+
+    .filters .btn.active {
+        background: linear-gradient(90deg, rgba(201, 169, 106, 0.12), transparent);
+        border: 1px solid rgba(201, 169, 106, 0.18);
+        color: var(--ivory)
+    }
+
+    /* Portfolio grid (fluid) */
+    .portfolio-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+        gap: 18px
+    }
+
+    /* ✅ fluid */
+    .portfolio-item {
+        background: var(--card);
+        border: 1px solid var(--line);
+        border-radius: var(--radius-md);
+        overflow: hidden;
+        display: flex;
+        flex-direction: column;
+        transition: transform var(--transition-fast), box-shadow var(--transition-fast), border-color var(--transition-fast)
+    }
+
+    .portfolio-item:focus {
+        box-shadow: 0 12px 30px rgba(2, 6, 23, 0.45);
+        transform: translateY(-4px)
+    }
+
+    .portfolio-item:hover {
+        transform: translateY(-6px);
+        box-shadow: 0 18px 40px rgba(2, 6, 23, 0.45);
+        border-color: rgba(201, 169, 106, 0.06)
+    }
+
+    .portfolio-item .product-media {
+        display: block;
+        overflow: hidden
+    }
+
+    .portfolio-item img {
+        width: 100%;
+        height: 220px;
+        object-fit: cover;
+        display: block
+    }
+
+    .portfolio-item h3 {
+        margin: 10px 0 6px;
+        font-family: "Playfair Display", serif;
+        font-size: 1.05rem;
+        padding: 0 14px
+    }
+
+    .portfolio-item .small {
+        padding: 0 14px;
+        color: var(--muted);
+        margin: 0;
+        font-size: clamp(0.85rem, 2vw, 0.95rem);
+    }
+
+    /* ✅ fluide */
+    .portfolio-item .card-actions {
+        display: flex;
+        gap: 8px;
+        padding: 12px 14px 18px;
+        margin-top: auto
+    }
+
+    /* Buttons */
+    .btn {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        gap: 8px;
+        padding: 10px 14px;
+        border-radius: 10px;
+        font-weight: 600;
+        cursor: pointer;
+        border: 1px solid transparent;
+        transition: transform var(--transition-fast), box-shadow var(--transition-fast);
+        min-height: var(--touch-size);
+    }
+
+    /* ✅ ergonomie tactile */
+    .btn--primary {
+        background: var(--gold);
+        color: #111;
+        border-color: transparent
+    }
+
+    .btn--ghost {
+        background: transparent;
+        color: var(--ivory);
+        border: 1px solid var(--line)
+    }
+
+    .btn--outline {
+        background: transparent;
+        color: var(--ivory);
+        border: 1px solid var(--gold)
+    }
+
+    .btn--icon {
+        padding: 8px;
+        width: 40px;
+        height: 40px;
+        border-radius: 10px;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center
+    }
+
+    .btn:focus-visible {
+        outline: 3px solid rgba(201, 169, 106, 0.18);
+        outline-offset: 3px
+    }
+
+    /* CTA strip */
+    .cta-strip {
+        padding: 40px 0;
+        border-top: 1px solid var(--line);
+        background: linear-gradient(180deg, rgba(201, 169, 106, 0.04), rgba(10, 31, 68, 0))
+    }
+
+    .cta-inner {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 12px
+    }
+
+    .cta-inner h2 {
+        font-family: "Playfair Display", serif;
+        margin: 0
+    }
+
+    /* Case modal */
+    #case-modal {
+        position: fixed;
+        inset: 0;
+        display: none;
+        align-items: center;
+        justify-content: center;
+        z-index: 220;
+        padding: 20px;
+        background: rgba(2, 6, 23, 0.
+
+   </style>
+</head>
+
+<body>
+   
+
+    <!-- Header -->
+    <header class="site-header" aria-label="En-tête du site">
+        <div class="container header-inner">
+            <a class="brand" href="/" aria-label="Accueil Novexa">
+                <img src="Capture d'écran 2025-12-04 160900.png" alt="Novexa" width="110" height="40" />
+            </a>
+
+            <nav aria-label="Navigation principale">
+                <ul class="nav-list" id="main-nav-portfolio">
+                    <li><a href="/">Accueil</a></li>
+                    <li><a href="service.html">Services</a></li>
+                    <li><a href="packs.html">Packs</a></li>
+                    <li><a href="portfolio.html" aria-current="page">Portfolio</a></li>
+                    <li><a href="contact.html" class="btn btn--ghost">Contact</a></li>
+                    <li><a href="blog.html" class="btn btn--ghost">Blog</a></li>
+                </ul>
+            </nav>
+
+            <button class="hamburger" id="hamburger-portfolio" aria-label="Ouvrir le menu" aria-expanded="false">
+                <span class="bar" aria-hidden="true"></span>
+            </button>
+        </div>
+    </header>
+
+    <div id="mobile-nav-placeholder-portfolio"></div>
+
+    <main id="main">
+        <!-- Hero -->
+        <section class="hero" aria-label="Portfolio Novexa">
+            <div class="container hero-inner">
+                <p class="kicker">Travaux récents</p>
+                <h1 class="hero-title">Portfolio — études de cas et résultats</h1>
+                <p class="hero-subtitle">Sélection d’interventions : sites vitrines, boutiques de services, identités
+                    visuelles et optimisations SEO. Chaque projet montre le brief, la solution et les résultats
+                    mesurables.</p>
+                <div class="hero-cta">
+                    <a href="/contact.html" class="btn btn--primary">Demander un devis</a>
+                    <a href="/packs.html" class="btn btn--ghost">Voir les packs</a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Filters -->
+        <section class="section" aria-labelledby="portfolio-filters">
+            <div class="container">
+                <div class="section-header">
+                    <h2 id="portfolio-filters">Filtrer les projets</h2>
+                    <div class="small">Filtre par type, secteur ou résultat</div>
+                </div>
+
+                <div style="display:flex;gap:10px;flex-wrap:wrap;margin-bottom:18px">
+                    <button class="btn btn--ghost js-filter" data-filter="all" aria-pressed="true">Tous</button>
+                    <button class="btn btn--ghost js-filter" data-filter="vitrine">Vitrine</button>
+                    <button class="btn btn--ghost js-filter" data-filter="ecommerce">E‑commerce</button>
+                    <button class="btn btn--ghost js-filter" data-filter="branding">Branding</button>
+                    <button class="btn btn--ghost js-filter" data-filter="seo">SEO</button>
+                </div>
+
+                <!-- Portfolio grid -->
+                <div class="cards portfolio-grid" id="portfolio-grid"
+                    style="display:grid;grid-template-columns:repeat(3,1fr);gap:18px">
+                    <!-- Case 1 -->
+                    <article class="card portfolio-item" data-tags="vitrine,artisanat" tabindex="0"
+                        aria-labelledby="p1-title">
+                        <a class="product-media" href="#case-1" data-case="1" aria-controls="case-modal" role="button">
+                            <img src="/assets/images/portfolio-1.jpg" alt="Site vitrine pour atelier d'art"
+                                loading="lazy" />
+                        </a>
+                        <div style="padding-top:12px">
+                            <h3 id="p1-title">Atelier Sidi — Site vitrine</h3>
+                            <p class="small">Brief : présence locale; Résultat : +42% de demandes en 30 jours.</p>
+                            <div style="display:flex;gap:8px;margin-top:10px">
+                                <button class="btn btn--outline js-open-case" data-case="1">Voir l'étude</button>
+                                <a class="btn btn--ghost" href="/contact.html?brief=vitrine">Demander un projet
+                                    similaire</a>
+                            </div>
+                        </div>
+                    </article>
+
+                    <!-- Case 2 -->
+                    <article class="card portfolio-item" data-tags="ecommerce,services" tabindex="0"
+                        aria-labelledby="p2-title">
+                        <a class="product-media" href="#case-2" data-case="2" role="button">
+                            <img src="/assets/images/portfolio-2.jpg" alt="Boutique de services — réservation en ligne"
+                                loading="lazy" />
+                        </a>
+                        <div style="padding-top:12px">
+                            <h3 id="p2-title">Studio Noor — E‑commerce de services</h3>
+                            <p class="small">Brief : productiser offres; Résultat : +28% de conversion checkout.</p>
+                            <div style="display:flex;gap:8px;margin-top:10px">
+                                <button class="btn btn--outline js-open-case" data-case="2">Voir l'étude</button>
+                                <a class="btn btn--ghost" href="/contact.html?brief=ecommerce">Demander un projet
+                                    similaire</a>
+                            </div>
+                        </div>
+                    </article>
+
+                    <!-- Case 3 -->
+                    <article class="card portfolio-item" data-tags="branding,mode" tabindex="0"
+                        aria-labelledby="p3-title">
+                        <a class="product-media" href="#case-3" data-case="3" role="button">
+                            <img src="/assets/images/portfolio-3.jpg" alt="Branding pour marque mode" loading="lazy" />
+                        </a>
+                        <div style="padding-top:12px">
+                            <h3 id="p3-title">Maison Lila — Branding</h3>
+                            <p class="small">Brief : identité minimal luxe; Résultat : identité prête pour web & print.
+                            </p>
+                            <div style="display:flex;gap:8px;margin-top:10px">
+                                <button class="btn btn--outline js-open-case" data-case="3">Voir l'étude</button>
+                                <a class="btn btn--ghost" href="/contact.html?brief=branding">Demander un projet
+                                    similaire</a>
+                            </div>
+                        </div>
+                    </article>
+
+                    <!-- Case 4 -->
+                    <article class="card portfolio-item" data-tags="seo,tech" tabindex="0" aria-labelledby="p4-title">
+                        <a class="product-media" href="#case-4" data-case="4" role="button">
+                            <img src="/assets/images/portfolio-4.jpg" alt="Audit SEO technique" loading="lazy" />
+                        </a>
+                        <div style="padding-top:12px">
+                            <h3 id="p4-title">Clinique Atlas — SEO technique</h3>
+                            <p class="small">Brief : indexation & vitesse; Résultat : +60% pages indexées, CWV
+                                améliorés.</p>
+                            <div style="display:flex;gap:8px;margin-top:10px">
+                                <button class="btn btn--outline js-open-case" data-case="4">Voir l'étude</button>
+                                <a class="btn btn--ghost" href="/contact.html?brief=seo">Demander un projet
+                                    similaire</a>
+                            </div>
+                        </div>
+                    </article>
+
+                    <!-- Case 5 -->
+                    <article class="card portfolio-item" data-tags="vitrine,restauration" tabindex="0"
+                        aria-labelledby="p5-title">
+                        <a class="product-media" href="#case-5" data-case="5" role="button">
+                            <img src="/assets/images/portfolio-5.jpg" alt="Site vitrine restaurant" loading="lazy" />
+                        </a>
+                        <div style="padding-top:12px">
+                            <h3 id="p5-title">Café Medina — Site vitrine</h3>
+                            <p class="small">Brief : réservation & menu; Résultat : +35% réservations en ligne.</p>
+                            <div style="display:flex;gap:8px;margin-top:10px">
+                                <button class="btn btn--outline js-open-case" data-case="5">Voir l'étude</button>
+                                <a class="btn btn--ghost" href="/contact.html?brief=vitrine">Demander un projet
+                                    similaire</a>
+                            </div>
+                        </div>
+                    </article>
+
+                    <!-- Case 6 -->
+                    <article class="card portfolio-item" data-tags="ecommerce,art" tabindex="0"
+                        aria-labelledby="p6-title">
+                        <a class="product-media" href="#case-6" data-case="6" role="button">
+                            <img src="/assets/images/portfolio-6.jpg" alt="Boutique d'art en ligne" loading="lazy" />
+                        </a>
+                        <div style="padding-top:12px">
+                            <h3 id="p6-title">Galerie Riad — E‑commerce</h3>
+                            <p class="small">Brief : catalogue & shipping; Résultat : panier moyen +18%.</p>
+                            <div style="display:flex;gap:8px;margin-top:10px">
+                                <button class="btn btn--outline js-open-case" data-case="6">Voir l'étude</button>
+                                <a class="btn btn--ghost" href="/contact.html?brief=ecommerce">Demander un projet
+                                    similaire</a>
+                            </div>
+                        </div>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <!-- CTA -->
+        <section class="cta-strip" aria-label="Appel à l’action">
+            <div class="container cta-inner">
+                <h2>Vous voulez un projet similaire ?</h2>
+                <a href="/contact.html" class="btn btn--primary">Parlons de votre projet</a>
+            </div>
+        </section>
+    </main>
+
+    <!-- Case study modal (reused for all cases) -->
+    <div id="case-modal" class="hidden" role="dialog" aria-modal="true" aria-labelledby="case-modal-title"
+        style="position:fixed;inset:0;display:flex;align-items:center;justify-content:center;z-index:220;padding:20px;">
+        <div
+            style="width:100%;max-width:980px;background:var(--card);border:1px solid var(--line);border-radius:12px;padding:20px;box-shadow:0 30px 80px rgba(2,6,23,0.6);">
+            <header
+                style="display:flex;align-items:flex-start;justify-content:space-between;gap:12px;margin-bottom:12px">
+                <div>
+                    <h3 id="case-modal-title" style="margin:0;font-family:'Playfair Display',serif">Étude de cas</h3>
+                    <p id="case-modal-sub" class="small" style="color:var(--muted);margin:6px 0 0">Résumé rapide</p>
+                </div>
+                <button class="btn btn--icon" id="case-modal-close" aria-label="Fermer la fenêtre">✕</button>
+            </header>
+
+            <div id="case-modal-body" style="display:grid;grid-template-columns:1fr 360px;gap:18px">
+                <div id="case-modal-main">
+                    <!-- Large image -->
+                    <div style="border-radius:10px;overflow:hidden;border:1px solid var(--line);background:#08102a">
+                        <img id="case-modal-image" src="/assets/images/portfolio-1.jpg" alt=""
+                            style="width:100%;height:auto;display:block" />
+                    </div>
+
+                    <!-- Description -->
+                    <div style="margin-top:12px">
+                        <h4 id="case-modal-heading" style="margin:0 0 8px;font-family:'Playfair Display',serif">Titre du
+                            projet</h4>
+                        <p id="case-modal-desc" class="small" style="color:var(--muted)">Contexte, challenge, solution
+                            et résultats chiffrés. Exemple : brief, approche design, intégration technique, suivi
+                            post‑lancement.</p>
+
+                        <ul id="case-modal-list" class="pack-features" style="margin-top:12px">
+                            <li>Livrable 1</li>
+                            <li>Livrable 2</li>
+                            <li>Livrable 3</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <aside style="background:var(--card);border:1px solid var(--line);border-radius:10px;padding:14px">
+                    <div style="display:flex;flex-direction:column;gap:10px">
+                        <div><strong>Résultats</strong>
+                            <p class="small" id="case-modal-results" style="color:var(--muted);margin:6px 0 0">+42%
+                                demandes</p>
+                        </div>
+                        <div><strong>Durée</strong>
+                            <p class="small" id="case-modal-duration" style="color:var(--muted);margin:6px 0 0">8 jours
+                            </p>
+                        </div>
+                        <div><strong>Technos</strong>
+                            <p class="small" id="case-modal-tech" style="color:var(--muted);margin:6px 0 0">HTML, CSS,
+                                JS, Stripe</p>
+                        </div>
+
+                        <div style="margin-top:12px;display:flex;gap:8px">
+                            <a id="case-modal-cta" class="btn btn--primary btn--full" href="/contact.html">Demander un
+                                projet similaire</a>
+                        </div>
+                    </div>
+                </aside>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="site-footer" aria-label="Pied de page">
+        <div class="container footer-inner">
+            <small>© <span id="year"></span> Novexa. Tous droits réservés.</small>
+            <nav aria-label="Liens secondaires">
+                <a href="/apropos.html">À propos</a>
+                <a href="/packs.html">Packs</a>
+                <a href="/contact.html">Contact</a>
+            </nav>
+        </div>
+    </footer>
+
+    <!-- Page script: filters + modal (léger) -->
+    <script>
+        // Year
+        document.getElementById('year').textContent = new Date().getFullYear();
+
+        // Mobile nav (reuse pattern)
+        (function () {
+            const hamburger = document.getElementById('hamburger-portfolio');
+            const mainNav = document.getElementById('main-nav-portfolio');
+            const placeholder = document.getElementById('mobile-nav-placeholder-portfolio');
+            if (hamburger && mainNav && placeholder) {
+                const overlay = document.createElement('div');
+                overlay.className = 'mobile-nav-overlay';
+                overlay.innerHTML = '<nav class="nav-list">' + mainNav.innerHTML + '</nav>';
+                placeholder.appendChild(overlay);
+                hamburger.addEventListener('click', function () {
+                    const open = overlay.classList.toggle('open');
+                    hamburger.classList.toggle('open', open);
+                    hamburger.setAttribute('aria-expanded', String(open));
+                    document.body.style.overflow = open ? 'hidden' : '';
+                });
+                overlay.addEventListener('click', function (e) {
+                    if (e.target.tagName === 'A') {
+                        overlay.classList.remove('open');
+                        hamburger.classList.remove('open');
+                        hamburger.setAttribute('aria-expanded', 'false');
+                        document.body.style.overflow = '';
+                    }
+                });
+            }
+        })();
+
+        // Filters
+        (function () {
+            const buttons = document.querySelectorAll('.js-filter');
+            const items = document.querySelectorAll('.portfolio-item');
+            buttons.forEach(btn => {
+                btn.addEventListener('click', () => {
+                    const filter = btn.dataset.filter;
+                    buttons.forEach(b => { b.setAttribute('aria-pressed', 'false'); b.classList.remove('active'); });
+                    btn.setAttribute('aria-pressed', 'true'); btn.classList.add('active');
+                    items.forEach(item => {
+                        if (filter === 'all') { item.style.display = ''; return; }
+                        const tags = (item.dataset.tags || '').split(',').map(t => t.trim());
+                        item.style.display = tags.includes(filter) ? '' : 'none';
+                    });
+                });
+            });
+        })();
+
+        // Case modal data (simple map)
+        (function () {
+            const cases = {
+                "1": {
+                    title: "Atelier Sidi — Site vitrine",
+                    sub: "Présence locale & prise de contact",
+                    img: "/assets/images/portfolio-1.jpg",
+                    desc: "Refonte du site vitrine pour Atelier Sidi : mise en valeur des collections, formulaire de contact optimisé et SEO local.",
+                    list: ["Sitemap & wireframes", "Design responsive", "Intégration & SEO de base"],
+                    results: "+42% demandes en 30 jours",
+                    duration: "8 jours",
+                    tech: "HTML, CSS, JS"
+                },
+                "2": {
+                    title: "Studio Noor — E‑commerce de services",
+                    sub: "Productisation et conversion",
+                    img: "/assets/images/portfolio-2.jpg",
+                    desc: "Mise en place d'une boutique de services avec fiches pack, upsell et checkout optimisé.",
+                    list: ["Catalogue produit", "Checkout Stripe", "Tracking conversions"],
+                    results: "+28% taux de conversion",
+                    duration: "14 jours",
+                    tech: "Shopify / Headless / Stripe"
+                },
+                "3": {
+                    title: "Maison Lila — Branding",
+                    sub: "Identité minimal luxe",
+                    img: "/assets/images/portfolio-3.jpg",
+                    desc: "Création d'une identité visuelle complète : logo, palette, kit UI et guidelines pour le web.",
+                    list: ["Logo principal & variantes", "Palette & typographies", "Kit UI"],
+                    results: "Identité prête pour web & print",
+                    duration: "6 jours",
+                    tech: "Figma, SVG"
+                },
+                "4": {
+                    title: "Clinique Atlas — SEO technique",
+                    sub: "Audit & Core Web Vitals",
+                    img: "/assets/images/portfolio-4.jpg",
+                    desc: "Audit technique, correction des balises, optimisation CWV et mise en place de données structurées.",
+                    list: ["Audit technique", "Schema.org", "Optimisation CWV"],
+                    results: "+60% pages indexées",
+                    duration: "10 jours",
+                    tech: "SEO, Lighthouse"
+                },
+                "5": {
+                    title: "Café Medina — Site vitrine",
+                    sub: "Réservations & menu",
+                    img: "/assets/images/portfolio-5.jpg",
+                    desc: "Site vitrine orienté réservation en ligne et mise en avant du menu saisonnier.",
+                    list: ["Design menu", "Formulaire réservation", "Optimisation mobile"],
+                    results: "+35% réservations en ligne",
+                    duration: "9 jours",
+                    tech: "HTML, CSS, JS"
+                },
+                "6": {
+                    title: "Galerie Riad — E‑commerce",
+                    sub: "Catalogue & expéditions",
+                    img: "/assets/images/portfolio-6.jpg",
+                    desc: "Boutique d'œuvres d'art avec gestion catalogue, variantes et options d'expédition.",
+                    list: ["Catalogue multi‑variantes", "Gestion shipping", "Analytics"],
+                    results: "+18% panier moyen",
+                    duration: "16 jours",
+                    tech: "WooCommerce / Custom"
+                }
+            };
+
+            const openButtons = document.querySelectorAll('.js-open-case');
+            const modal = document.getElementById('case-modal');
+            const modalClose = document.getElementById('case-modal-close');
+            const modalTitle = document.getElementById('case-modal-title');
+            const modalSub = document.getElementById('case-modal-sub');
+            const modalImage = document.getElementById('case-modal-image');
+            const modalHeading = document.getElementById('case-modal-heading');
+            const modalDesc = document.getElementById('case-modal-desc');
+            const modalList = document.getElementById('case-modal-list');
+            const modalResults = document.getElementById('case-modal-results');
+            const modalDuration = document.getElementById('case-modal-duration');
+            const modalTech = document.getElementById('case-modal-tech');
+
+            function openCase(id) {
+                const data = cases[id];
+                if (!data) return;
+                modalTitle.textContent = data.title;
+                modalSub.textContent = data.sub;
+                modalImage.src = data.img;
+                modalImage.alt = data.title;
+                modalHeading.textContent = data.title;
+                modalDesc.textContent = data.desc;
+                modalList.innerHTML = data.list.map(i => '<li>' + i + '</li>').join('');
+                modalResults.textContent = data.results;
+                modalDuration.textContent = data.duration;
+                modalTech.textContent = data.tech;
+                modal.classList.remove('hidden');
+                modal.style.display = 'flex';
+                document.body.style.overflow = 'hidden';
+            }
+
+            function closeCase() {
+                modal.classList.add('hidden');
+                modal.style.display = 'none';
+                document.body.style.overflow = '';
+            }
+
+            openButtons.forEach(btn => {
+                btn.addEventListener('click', function () {
+                    const id = this.dataset.case;
+                    openCase(id);
+                });
+            });
+
+            // also open when clicking image link
+            document.querySelectorAll('.product-media').forEach(link => {
+                link.addEventListener('click', function (e) {
+                    const id = this.dataset.case;
+                    if (id) { e.preventDefault(); openCase(id); }
+                });
+            });
+
+            if (modalClose) modalClose.addEventListener('click', closeCase);
+            // close on overlay click
+            modal.addEventListener('click', function (e) {
+                if (e.target === modal) closeCase();
+            });
+            // close on ESC
+            document.addEventListener('keydown', function (e) {
+                if (e.key === 'Escape') closeCase();
+            });
+        })();
+    </script>
+</body>
+
+</html>

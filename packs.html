@@ -1,0 +1,602 @@
+<!doctype html>
+<html lang="fr">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>Packs — Novexa</title>
+    <meta name="description"
+        content="Packs clairs pour création de site, e‑commerce, branding et SEO. Réservez un pack ou demandez un devis." />
+    <link rel="canonical" href="https://novexa.example.com/packs.html" />
+
+    <!-- Open Graph -->
+    <meta property="og:title" content="Novexa — Packs" />
+    <meta property="og:description" content="Packs clairs pour création de site, e‑commerce, branding et SEO." />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://novexa.example.com/packs.html" />
+    <meta property="og:image" content="https://novexa.example.com/assets/images/og-cover.jpg" />
+    <meta name="twitter:card" content="summary_large_image" />
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    
+
+    <!-- Main stylesheet (assumed provided) -->
+    
+</head>
+<style>
+/* =========================================================
+style.css — Novexa (consolidé, modifié)
+- thème navy blue minimal luxe
+- responsive optimisé (grilles fluides, typo fluide, ergonomie tactile)
+========================================================= */
+
+/* Variables */
+:root{
+--navy:#0A1F44;
+--navy-deep:#081835;
+--ivory:#F7F4EE;
+--muted:#D9D7D3;
+--gold:#C9A96A;
+--line:#15264A;
+--card:#0D1A3A;
+--glass: rgba(255,255,255,0.03);
+
+--max-width:1100px;
+--pad:24px;
+--radius-sm:8px;
+--radius-md:12px;
+--radius-lg:16px;
+
+--transition-fast:160ms;
+--transition-medium:260ms;
+
+--touch-size:48px;
+
+/* Buttons */
+--btn-radius:10px;
+--btn-padding-y:12px;
+--btn-padding-x:18px;
+--btn-font-size:1rem;
+--btn-gap:8px;
+}
+img{border-radius: 2px; height:auto; object-fit:cover;} /* ✅ images fluides */
+
+/* Reset & base */
+*{box-sizing:border-box}
+html{font-family:Inter, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+-webkit-font-smoothing:antialiased; -moz-osx-font-smoothing:grayscale; scroll-behavior:smooth}
+body{margin:0;background:var(--navy);color:var(--ivory);line-height:1.6;font-size:16px}
+img, picture, svg{max-width:100%;height:auto;display:block}
+a{color:inherit;text-decoration:none}
+.container{max-width:var(--max-width);margin:0 auto;padding:0 var(--pad)}
+
+/* ... (tout ton code inchangé jusqu’aux grilles) ... */
+
+/* Grilles fluides */
+.cards, .product-grid, .categories-grid {
+display: grid;
+grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); /* ✅ auto-fit */
+gap: 16px;
+}
+
+/* Typo fluide */
+.hero-subtitle {
+font-size: clamp(0.9rem, 2.5vw, 1.05rem); /* ✅ fluide */
+}
+
+/* Boutons ergonomiques */
+.btn {
+min-height: var(--touch-size); /* ✅ taille tactile */
+}
+
+/* Responsive */
+@media (max-width:980px){
+.timeline{grid-template-columns:repeat(2,1fr)}
+.services-layout{grid-template-columns:1fr}
+.toc{position:static;order:2;margin-top:12px}
+.hero{padding:64px 0 36px}
+.hero-title{font-size:clamp(24px,6vw,36px)}
+.brief-form{grid-template-columns:1fr}
+.compare-table th,.compare-table td{font-size:0.95rem;padding:10px}
+}
+
+/* Mobile */
+@media (max-width:760px){
+html{font-size:15px}
+.nav-list{display:none}
+.hamburger{display:flex}
+.mobile-nav-overlay{padding-top:120px}
+.pack-grid,.cards{grid-template-columns:1fr;gap:14px}
+.hero{padding:56px 0 28px}
+.hero-subtitle{font-size:clamp(0.85rem, 2.5vw, 0.95rem)} /* ✅ fluide */
+.btn{padding:12px 14px;border-radius:10px}
+.btn--primary{width:100%}
+.value-grid{grid-template-columns:repeat(2,1fr)}
+.product-media img,.cat-card img{aspect-ratio:16/10;object-fit:cover}
+.skip-link:focus{left:12px}
+}
+
+/* Très petit */
+@media (max-width:420px){
+.hero{padding:48px 0 20px}
+.hero-title{font-size:20px}
+.header-inner{padding:8px 12px}
+.container{padding:0 12px}
+}
+</style>
+<body>
+    <a class="skip-link" href="#main">Aller au contenu</a>
+
+    <!-- Header -->
+    <header class="site-header" aria-label="En-tête du site">
+        <div class="container header-inner">
+            <a class="brand" href="/" aria-label="Accueil Novexa">
+                <img src="Capture d'écran 2025-12-04 160900.png" alt="Novexa" width="110" height="40" />
+            </a>
+
+            <nav aria-label="Navigation principale" class="nav">
+                <ul class="nav-list" id="main-nav">
+                    <li><a href="novexa.html">Accueil</a></li>
+                    <li><a href="service.html">Services</a></li>
+                    <li><a href="packs.html" aria-current="page">Packs</a></li>
+                    <li><a href="portfolio.html">Portfolio</a></li>
+                    <li><a href="blog.html">Blog</a></li>
+                    <li><a href="contact.html" class="btn btn--ghost">Contact</a></li>
+                </ul>
+            </nav>
+
+            <button class="hamburger" id="hamburger" aria-label="Ouvrir le menu" aria-expanded="false">
+                <span class="bar" aria-hidden="true"></span>
+            </button>
+        </div>
+    </header>
+
+    <!-- Mobile nav overlay (injected by JS if needed) -->
+    <div id="mobile-nav-placeholder"></div>
+
+    <main id="main">
+        <!-- Hero -->
+        <section class="hero" aria-label="Packs Novexa">
+            <div class="container hero-inner">
+                <p class="kicker">Packs productisés</p>
+                <h1 class="hero-title">Packs clairs pour lancer votre projet</h1>
+                <p class="hero-subtitle">Choisissez un pack adapté à votre besoin — site vitrine, e‑commerce de
+                    services, branding ou SEO technique. Prix indicatifs, devis sur mesure.</p>
+                <div class="hero-cta">
+                    <a href="#packs-grid" class="btn btn--ghost">Voir les packs</a>
+                    <a href="#compare" class="btn btn--primary">Comparer les offres</a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Packs grid -->
+        <section id="packs-grid" class="section" aria-labelledby="packs-title">
+            <div class="container">
+                <div class="section-header">
+                    <h2 id="packs-title">Nos packs</h2>
+                    <p class="small">Packs conçus pour les entrepreneurs, artisans et petites marques au Maroc.</p>
+                </div>
+
+                <div class="cards pack-grid" style="display:grid;grid-template-columns:repeat(3,1fr);gap:18px;">
+                    <!-- Pack Branding -->
+                    <article class="pack-card card" aria-labelledby="pack-branding-title">
+                        <header>
+                            <h3 id="pack-branding-title">Pack Branding</h3>
+                            <p class="small pack-sub">Identité web cohérente et réutilisable</p>
+                        </header>
+                    
+                        <ul class="pack-features">
+                            <li>Logo simple + palette</li>
+                            <li>Typographies & kit UI</li>
+                            <li>Guide d'usage web</li>
+                            <li>Fichiers sources (SVG, PNG)</li>
+                        </ul>
+                    
+                        <div style="margin-top:12px">
+                            <br>
+                        </div>
+                    
+                        <div class="pack-cta">
+                            <button class="btn btn--primary btn--full js-reserve" data-pack="Branding"
+                                href="branding.html">Réserver</button>
+                            <a class="btn btn--ghost" href="branding.html">Détails</a>
+                        </div>
+                    </article>
+                    <!-- Pack Vitrine -->
+                   
+                    <article class="pack-card card" aria-labelledby="pack-vitrine-title">
+                        <header>
+                            <h3 id="pack-vitrine-title">Pack Vitrine / Ecole</h3>
+                            <p class="small pack-sub">Présence web élégante et rapide</p>
+                        </header>
+
+                        <ul class="pack-features">
+                            <li>Site 5 pages (Accueil, Services, À propos, Blog, Contact)</li>
+                            <li>Design minimal luxe (navy blue)</li>
+                            <li>SEO de base & performance</li>
+                            <li>Formation courte pour gestion</li>
+                        </ul>
+
+                        <div style="margin-top:12px">
+                            <br>
+                        </div>
+
+                        <div class="pack-cta">
+                            <button class="btn btn--primary btn--full js-reserve" data-pack="Vitrine"
+                                href="vitrine.html">Réserver</button>
+                            <a class="btn btn--ghost" href="vitrine.html">Détails</a>
+                        </div>
+                    </article>
+
+                    <!-- Pack E-commerce -->
+                    <article class="pack-card card" aria-labelledby="pack-ecom-title">
+                        <header>
+                            <h3 id="pack-ecom-title">Pack E‑commerce</h3>
+                            <p class="small pack-sub">Vendre vos services en ligne, simplement</p>
+                        </header>
+
+                        <ul class="pack-features">
+                            <li>Boutique de packs, fiches produits, panier</li>
+                            <li>Checkout Stripe / CMI / PayPal</li>
+                            <li>Upsell, analytics et suivi conversions</li>
+                            <li>RGPD & sécurité</li>
+                        </ul>
+
+                        <div style="margin-top:12px">
+                            <br>
+                        </div>
+
+                        <div class="pack-cta">
+                            <button class="btn btn--primary btn--full js-reserve" data-pack="E-commerce"
+                               href="ecomerce.html" >Réserver</button>
+                            <a class="btn btn--ghost" href="ecomerce.html">Détails</a>
+                        </div>
+                    </article>
+
+                    
+                </div>
+            </div>
+        </section>
+
+        <!-- Compare & details -->
+        <section id="compare" class="section" aria-labelledby="compare-title">
+            <div class="container">
+                <h2 id="compare-title">Comparatif rapide</h2>
+                <table class="compare-table" aria-describedby="compare-note">
+                    <thead>
+                        <tr>
+                            <th>Pack</th>
+                            <th>Livrables</th>
+                            <th>Idéal pour</th>
+                            <th>Délais</th>
+                            
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><span class="badge">Vitrine/Ecole</span></td>
+                            <td>5 pages, SEO de base, formation</td>
+                            <td>Artisans, indépendants</td>
+                            <td>7–12 jours</td>
+                            
+                        </tr>
+                        <tr>
+                            <td><span class="badge best">E‑commerce</span></td>
+                            <td>Boutique, panier, checkout, analytics</td>
+                            <td>Prestataires, agences, studios</td>
+                            <td>12–18 jours</td>
+                        </tr>
+                        <tr>
+                            <td><span class="badge">Branding</span></td>
+                            <td>Logo, palette, kit UI, guide</td>
+                            <td>Marques en lancement ou refonte</td>
+                            <td>5–8 jours</td>
+                        </tr>
+                    </tbody>
+                </table>
+                <p id="compare-note" class="form-help" style="margin-top:10px;color:var(--muted)">Les prix sont
+                    indicatifs. Chaque projet peut nécessiter un ajustement selon périmètre.</p>
+            </div>
+        </section>
+
+        <!-- Pack details (anchors) -->
+        <section id="vitrine-details" class="section section-block" aria-labelledby="vitrine-details-title">
+            <div class="container">
+                <h3 id="vitrine-details-title">Détails — Pack Vitrine / Ecole </h3>
+                <p class="small">Livrables et étapes pour le Pack Vitrine.</p>
+                <ul class="pack-features">
+                    <li>Brief & cadrage</li>
+                    <li>Wireframes & maquette (1 itération)</li>
+                    <li>Intégration HTML/CSS, SEO de base</li>
+                    <li>Formation 30 minutes pour gestion</li>
+                </ul>
+            </div>
+        </section>
+
+        <section id="ecommerce-details" class="section section-block" aria-labelledby="ecommerce-details-title">
+            <div class="container">
+                <h3 id="ecommerce-details-title">Détails — Pack E‑commerce</h3>
+                <p class="small">Ce pack inclut la mise en place d'une boutique de services et le suivi des conversions.
+                </p>
+                <ul class="pack-features">
+                    <li>Catalogue produit, fiches pack, upsell</li>
+                    <li>Intégration paiement (Stripe/CMI/PayPal)</li>
+                    <li>Tracking conversions & configuration analytics</li>
+                    <li>Support post‑lancement 14 jours</li>
+                </ul>
+            </div>
+        </section>
+
+        <section id="branding-details" class="section section-block" aria-labelledby="branding-details-title">
+            <div class="container">
+                <h3 id="branding-details-title">Détails — Pack Branding</h3>
+                <p class="small">Identité visuelle pensée pour le web et la réutilisation.</p>
+                <ul class="pack-features">
+                    <li>Logo principal + variantes</li>
+                    <li>Palette couleur, typographies</li>
+                    <li>Kit UI (boutons, cartes, nav)</li>
+                    <li>Guide d'utilisation (PDF)</li>
+                </ul>
+            </div>
+        </section>
+
+        <!-- FAQ & guarantees -->
+        <section class="section" aria-labelledby="packs-faq">
+            <div class="container">
+                <h2 id="packs-faq">Questions fréquentes</h2>
+                <div class="faq">
+                    <div class="faq-item">
+                        <button class="faq-btn" aria-expanded="false">Comment réserver un pack ? <span>+</span></button>
+                        <div class="faq-content">Cliquez sur "Réserver", remplissez le brief rapide et choisissez le
+                            mode de paiement. Nous confirmons sous 48h.</div>
+                    </div>
+
+                    <div class="faq-item">
+                        <button class="faq-btn" aria-expanded="false">Peut-on personnaliser un pack ?
+                            <span>+</span></button>
+                        <div class="faq-content">Oui. Les packs sont des points de départ. Nous proposons des options
+                            sur devis pour fonctionnalités supplémentaires.</div>
+                    </div>
+
+                    <div class="faq-item">
+                        <button class="faq-btn" aria-expanded="false">Modes de paiement acceptés ?
+                            <span>+</span></button>
+                        <div class="faq-content">Carte bancaire (Stripe/CMI), PayPal, virement. Possibilité d'acompte et
+                            paiement échelonné selon projet.</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Checkout modal (stub) -->
+        <div id="checkout-modal" class="hidden" role="dialog" aria-modal="true" aria-labelledby="checkout-title"
+            style="position:fixed;inset:0;display:flex;align-items:center;justify-content:center;z-index:200;padding:20px;">
+            <div
+                style="width:100%;max-width:720px;background:var(--card);border:1px solid var(--line);border-radius:12px;padding:20px;box-shadow:0 20px 60px rgba(2,6,23,0.6);">
+                <header
+                    style="display:flex;align-items:center;justify-content:space-between;gap:12px;margin-bottom:12px">
+                    <h3 id="checkout-title" style="margin:0;font-family:'Playfair Display',serif">Finaliser la
+                        réservation</h3>
+                    <button class="btn btn--icon" id="checkout-close" aria-label="Fermer la fenêtre">✕</button>
+                </header>
+
+                <div id="checkout-body">
+                    <p class="small" id="checkout-summary">Résumé du pack sélectionné.</p>
+
+                    <form id="checkout-form" style="display:grid;gap:12px;margin-top:12px">
+                        <div class="form-row">
+                            <label for="client-name">Nom</label>
+                            <input id="client-name" name="name" type="text" required placeholder=" " />
+                        </div>
+
+                        <div class="form-row">
+                            <label for="client-email">Email</label>
+                            <input id="client-email" name="email" type="email" required placeholder=" " />
+                        </div>
+
+                        <div class="form-row">
+                            <label for="client-phone">Téléphone (optionnel)</label>
+                            <input id="client-phone" name="phone" type="tel" placeholder=" " />
+                        </div>
+
+                        <div
+                            style="display:flex;gap:10px;align-items:center;justify-content:space-between;margin-top:6px">
+                            <div class="small" id="checkout-price" style="font-weight:700">Prix: —</div>
+                            <div style="display:flex;gap:8px">
+                                <button type="button" class="btn btn--ghost" id="checkout-cancel">Annuler</button>
+                                <button type="submit" class="btn btn--primary">Payer / Réserver</button>
+                            </div>
+                        </div>
+
+                        <p class="form-help small" style="margin-top:8px;color:var(--muted)">Paiement simulé (stub).
+                            Intégration Stripe/CMI à configurer en production.</p>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="site-footer" aria-label="Pied de page">
+        <div class="container footer-inner">
+            <small>© <span id="year"></span> Novexa. Tous droits réservés.</small>
+            <nav aria-label="Liens secondaires">
+                <a href="blog.html">À propos</a>
+                <a href="process.html">Process</a>
+                <a href="contact.html">Contact</a>
+            </nav>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+   Scripts
+<script>
+    // Year
+    document.getElementById('year').textContent = new Date().getFullYear();
+
+    // Mobile nav overlay creation and hamburger toggle
+    // ... (votre code pour le menu mobile)
+    (function () {
+        const hamburger = document.getElementById('hamburger');
+        const mainNav = document.getElementById('main-nav');
+        const placeholder = document.getElementById('mobile-nav-placeholder');
+
+        // Build overlay element
+        const overlay = document.createElement('div');
+        overlay.className = 'mobile-nav-overlay';
+        overlay.innerHTML = '<nav class="nav-list">' + mainNav.innerHTML + '</nav>';
+        placeholder.appendChild(overlay);
+
+        hamburger.addEventListener('click', function () {
+            const open = overlay.classList.toggle('open');
+            hamburger.classList.toggle('open', open);
+            hamburger.setAttribute('aria-expanded', String(open));
+            document.body.style.overflow = open ? 'hidden' : '';
+        });
+
+        // Close overlay when clicking a link
+        overlay.addEventListener('click', function (e) {
+            if (e.target.tagName === 'A') {
+                overlay.classList.remove('open');
+                hamburger.classList.remove('open');
+                hamburger.setAttribute('aria-expanded', 'false');
+                document.body.style.overflow = '';
+            }
+        });
+    })();
+
+    // FAQ accordion
+    // ... (votre code pour le FAQ)
+    (function () {
+        document.querySelectorAll('.faq-item').forEach(item => {
+            const btn = item.querySelector('.faq-btn');
+            btn.addEventListener('click', () => {
+                const open = item.hasAttribute('open');
+                document.querySelectorAll('.faq-item').forEach(i => {
+                    i.removeAttribute('open');
+                    i.querySelector('.faq-btn').setAttribute('aria-expanded', 'false');
+                });
+                if (!open) {
+                    item.setAttribute('open', '');
+                    btn.setAttribute('aria-expanded', 'true');
+                }
+            });
+        });
+    })();
+
+
+    // --- DÉBUT DE LA LOGIQUE DE MODALE WHATSAPP MISE À JOUR ---
+    (function () {
+        const reserveButtons = document.querySelectorAll('.js-reserve');
+        const modal = document.getElementById('checkout-modal');
+        const closeBtn = document.getElementById('checkout-close');
+        const cancelBtn = document.getElementById('checkout-cancel');
+        const summary = document.getElementById('checkout-summary');
+        const priceEl = document.getElementById('checkout-price');
+        const form = document.getElementById('checkout-form');
+
+        // Variables de stockage temporaire du pack et prix
+        let currentPackName = '';
+        let currentPrice = '';
+
+        // 🎯 VOTRE NUMÉRO DE TÉLÉPHONE WHATSAPP FORMATÉ :
+        const WHATSAPP_NUMBER = '212772754051';
+
+        function openModal(packName, price) {
+            currentPackName = packName; // Stocke le nom du pack
+            currentPrice = price; // Stocke le prix
+            summary.textContent = 'Pack sélectionné: ' + packName;
+            priceEl.textContent = 'Prix: ' + price + ' MAD';
+            modal.classList.remove('hidden');
+            modal.style.display = 'flex';
+            document.body.style.overflow = 'hidden';
+            setTimeout(() => document.getElementById('client-name').focus(), 120);
+        }
+
+        function closeModal() {
+            modal.classList.add('hidden');
+            modal.style.display = 'none';
+            document.body.style.overflow = '';
+            form.reset(); // Réinitialise le formulaire
+        }
+
+        // Logique d'ouverture de la modale et détermination du prix
+        reserveButtons.forEach(btn => {
+            btn.addEventListener('click', function (e) {
+                e.preventDefault();
+                const packName = this.getAttribute('data-pack');
+                let price = '';
+                // Logique de prix simple (ajustez ces prix)
+                switch (packName) {
+                    case 'Branding':
+                        price = '2,000';
+                        break;
+                    case 'Vitrine':
+                        price = '4,500';
+                        break;
+                    case 'E-commerce':
+                        price = '8,000';
+                        break;
+                    default:
+                        price = 'Sur Devis';
+                }
+                openModal(packName, price);
+            });
+        });
+
+        closeBtn.addEventListener('click', closeModal);
+        cancelBtn.addEventListener('click', closeModal);
+
+        modal.addEventListener('click', (e) => {
+            if (e.target === modal) {
+                closeModal();
+            }
+        });
+
+
+        // 🚀 GESTION DE LA SOUMISSION DU FORMULAIRE ET REDIRECTION WHATSAPP
+        form.addEventListener('submit', function (e) {
+            e.preventDefault(); // Stoppe la soumission HTTP normale
+
+            // 1. Récupération des données du formulaire
+            const name = document.getElementById('client-name').value;
+            const email = document.getElementById('client-email').value;
+            // Utiliser 'Non renseigné' si le champ est vide
+            const phone = document.getElementById('client-phone').value.trim() || 'Non renseigné';
+
+            const packName = currentPackName;
+            const price = currentPrice;
+
+            // 2. Construction du message (avec %0A pour les sauts de ligne)
+            let message = '🛎️ Nouvelle Réservation de Pack Novexa\n';
+            message += '---------------------------------\n';
+            message += `Pack: ${packName}\n`;
+            message += `Prix Indiqué: ${price} MAD\n`;
+            message += '---------------------------------\n';
+            message += `Client: ${name}\n`;
+            message += `Email: ${email}\n`;
+            message += `Tel: ${phone}\n`;
+            message += '---------------------------------\n';
+            message += 'Merci de confirmer le devis et les modalités de paiement.';
+
+            // 3. Encodage du message
+            const encodedMessage = encodeURIComponent(message);
+
+            // 4. Création et Redirection vers WhatsApp
+            const whatsappLink = `https://wa.me/${WHATSAPP_NUMBER}?text=${encodedMessage}`;
+
+            window.location.href = whatsappLink;
+
+            // La modale reste ouverte tant que l'utilisateur n'a pas quitté la page/l'onglet WhatsApp,
+            // ou vous pouvez la fermer immédiatement si vous préférez :
+            // closeModal();
+        });
+
+    })();
+    // --- FIN DE LA LOGIQUE DE MODALE WHATSAPP MISE À JOUR ---
+</script>
+</body>
+
+</html>
