@@ -26,13 +26,11 @@
     
 </head>
 <style>
-/* =========================================================
-style.css — Novexa (consolidé, modifié)
-- thème navy blue minimal luxe
-- responsive optimisé (grilles fluides, typo fluide, ergonomie tactile)
+    /* =========================================================
+style.css — Novexa (Amélioré)
 ========================================================= */
 
-/* Variables */
+/* Variables (laissées inchangées pour la cohérence) */
 :root{
 --navy:#0A1F44;
 --navy-deep:#081835;
@@ -40,7 +38,7 @@ style.css — Novexa (consolidé, modifié)
 --muted:#D9D7D3;
 --gold:#C9A96A;
 --line:#15264A;
---card:#0D1A3A;
+--card:#0D1A3A; /* Fond pour les cartes et la modale */
 --glass: rgba(255,255,255,0.03);
 
 --max-width:1100px;
@@ -61,61 +59,265 @@ style.css — Novexa (consolidé, modifié)
 --btn-font-size:1rem;
 --btn-gap:8px;
 }
-img{border-radius: 2px; height:auto; object-fit:cover;} /* ✅ images fluides */
 
-/* Reset & base */
+/* Reset & base (inchangé) */
 *{box-sizing:border-box}
 html{font-family:Inter, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
 -webkit-font-smoothing:antialiased; -moz-osx-font-smoothing:grayscale; scroll-behavior:smooth}
 body{margin:0;background:var(--navy);color:var(--ivory);line-height:1.6;font-size:16px}
-img, picture, svg{max-width:100%;height:auto;display:block}
+img, picture, svg{max-width:100%;height:auto;display:block;border-radius: 2px; object-fit:cover;} /* ✅ images fluides */
 a{color:inherit;text-decoration:none}
 .container{max-width:var(--max-width);margin:0 auto;padding:0 var(--pad)}
+h1,h2,h3,h4{margin:0 0 0.5em 0;line-height:1.2;font-weight:700}
+h2{font-size:clamp(1.8rem, 4vw, 2.5rem);margin-bottom:0.8em}
+h3{font-size:clamp(1.3rem, 3vw, 1.8rem);font-weight:600}
+p.small{font-size:0.95rem;color:var(--muted)}
+.section{padding:50px 0}
+.section-header{margin-bottom:30px}
+.kicker{color:var(--gold);font-weight:600;letter-spacing:0.05em;text-transform:uppercase;font-size:0.85rem;margin-bottom:8px}
 
-/* ... (tout ton code inchangé jusqu’aux grilles) ... */
 
-/* Grilles fluides */
-.cards, .product-grid, .categories-grid {
-display: grid;
-grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); /* ✅ auto-fit */
-gap: 16px;
+/* 1. Header & Navigation */
+.site-header{padding:12px 0;border-bottom:1px solid var(--line);position:sticky;top:0;z-index:100;background:rgba(10,31,68,0.95);backdrop-filter:blur(5px);}
+.header-inner{display:flex;justify-content:space-between;align-items:center;}
+.brand img{width:110px;height:40px;object-fit:contain;filter:brightness(1.1);} /* Améliorer le logo */
+.nav-list{display:flex;gap:20px;list-style:none;padding:0;margin:0;align-items:center}
+.nav-list a{transition:color var(--transition-fast) ease}
+.nav-list a:hover{color:var(--gold)}
+.btn--ghost{border:1px solid var(--line);padding:var(--btn-padding-y) var(--btn-padding-x);border-radius:var(--btn-radius);transition:background var(--transition-fast) ease, border-color var(--transition-fast) ease}
+.btn--ghost:hover{background:var(--line);border-color:var(--line)}
+/* Hamburger */
+.hamburger{display:none;padding:8px;cursor:pointer;background:transparent;border:none;z-index:10;width:var(--touch-size);height:var(--touch-size);align-items:center;justify-content:center}
+.bar{display:block;width:25px;height:3px;background:var(--ivory);border-radius:2px;transition:transform var(--transition-medium), opacity var(--transition-medium)}
+.hamburger.open .bar{opacity:0;transform:translateX(10px)}
+.hamburger.open .bar:nth-child(1){transform:rotate(45deg) translate(5px, 5px);opacity:1}
+.hamburger.open .bar:nth-child(2){opacity:0}
+.hamburger.open .bar:nth-child(3){transform:rotate(-45deg) translate(5px, -5px);opacity:1}
+.mobile-nav-overlay{position:fixed;inset:0;background:var(--navy-deep);z-index:50;padding-top:100px;display:none;opacity:0;transition:opacity var(--transition-medium)}
+.mobile-nav-overlay.open{display:block;opacity:1}
+.mobile-nav-overlay .nav-list{flex-direction:column;align-items:flex-start;gap:30px;font-size:1.5rem;padding:var(--pad)}
+
+
+/* 2. Hero Section */
+.hero{padding:90px 0 50px}
+.hero-title{font-size:clamp(2.5rem, 7vw, 3.5rem);font-weight:800;max-width:800px;margin-bottom:0.4em}
+.hero-subtitle{font-size: clamp(0.9rem, 2.5vw, 1.05rem);max-width:700px;color:var(--muted)}
+.hero-cta{display:flex;gap:12px;margin-top:24px}
+.btn{display:inline-flex;align-items:center;justify-content:center;font-weight:600;min-height:var(--touch-size);padding:var(--btn-padding-y) var(--btn-padding-x);border-radius:var(--btn-radius);cursor:pointer;transition:background var(--transition-fast), transform 100ms}
+.btn--primary{background:var(--gold);color:var(--navy);border:2px solid var(--gold)}
+.btn--primary:hover{background:var(--gold);transform:translateY(-1px);box-shadow:0 3px 8px rgba(201,169,106,0.3)}
+.btn--full{width:100%}
+
+
+/* 3. Packs Grid & Cards */
+.pack-grid{
+grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)) !important; /* Force la fluidité sur le grand écran */
+gap: 30px !important;
+}
+.pack-card{
+background:var(--card);
+border:1px solid var(--line);
+border-radius:var(--radius-lg);
+padding:24px;
+display:flex;
+flex-direction:column;
+transition:all var(--transition-medium);
+}
+.pack-card:hover{
+transform:translateY(-5px);
+border-color:var(--gold);
+box-shadow:0 10px 30px rgba(0,0,0,0.15);
+}
+.pack-card header{margin-bottom:15px}
+.pack-sub{color:var(--muted);font-size:0.9rem;margin-top:4px}
+.pack-cta{margin-top:auto;padding-top:20px;display:flex;gap:10px}
+
+
+/* 4. Pack Features List */
+.pack-features{
+list-style:none;
+padding:0;
+margin:10px 0 0 0;
+flex-grow:1;
+}
+.pack-features li{
+display:flex;
+align-items:center;
+gap:10px;
+padding:6px 0;
+font-size:0.95rem;
+border-bottom:1px dashed var(--line); /* Séparateur léger */
+}
+.pack-features li:last-child{border-bottom:none;}
+.pack-features li::before{
+content:"\2713"; /* Coche (ou une étoile ou une icône SVG) */
+color:var(--gold);
+font-weight:bold;
+font-size:1.1rem;
+line-height:1;
+}
+.section-block .pack-features{margin-top:20px;border:1px solid var(--line);border-radius:var(--radius-md);padding:15px 20px;}
+
+
+/* 5. Compare Table */
+.compare-table{
+width:100%;
+border-collapse:collapse;
+margin-top:20px;
+overflow:hidden;
+border-radius:var(--radius-md);
+border:1px solid var(--line);
+}
+.compare-table thead{
+background:var(--navy-deep);
+}
+.compare-table th, .compare-table td{
+padding:14px 18px;
+text-align:left;
+border-bottom:1px solid var(--line);
+}
+.compare-table th{
+font-weight:700;
+color:var(--muted);
+text-transform:uppercase;
+font-size:0.85rem;
+letter-spacing:0.05em;
+}
+.compare-table tbody tr:hover{
+background:var(--card);
+}
+.compare-table tbody tr:last-child td{
+border-bottom:none;
+}
+.badge{
+display:inline-block;
+padding:4px 10px;
+border-radius:20px;
+background:var(--line);
+font-size:0.85rem;
+font-weight:600;
+}
+.badge.best{
+background:var(--gold);
+color:var(--navy-deep);
 }
 
-/* Typo fluide */
-.hero-subtitle {
-font-size: clamp(0.9rem, 2.5vw, 1.05rem); /* ✅ fluide */
+
+/* 6. FAQ Accordion */
+.faq{
+margin-top:20px;
+border-top:1px solid var(--line);
+}
+.faq-item{
+border-bottom:1px solid var(--line);
+}
+.faq-btn{
+width:100%;
+display:flex;
+justify-content:space-between;
+align-items:center;
+background:transparent;
+color:var(--ivory);
+padding:18px 0;
+border:none;
+text-align:left;
+font-size:1.1rem;
+font-weight:600;
+cursor:pointer;
+transition:color var(--transition-fast);
+}
+.faq-btn:hover{color:var(--gold)}
+.faq-btn span{
+font-size:1.5rem;
+transition:transform var(--transition-medium);
+line-height:1;
+}
+.faq-item[open] .faq-btn span{
+transform:rotate(45deg); /* Transforme le '+' en 'x' (ou '-') */
+}
+.faq-content{
+max-height:0;
+overflow:hidden;
+transition:max-height var(--transition-medium) ease-out, padding-bottom var(--transition-medium) ease-out;
+padding-bottom:0;
+color:var(--muted);
+}
+.faq-item[open] .faq-content{
+max-height:200px; /* Assurez-vous que c'est suffisant pour le contenu */
+padding-bottom:20px;
 }
 
-/* Boutons ergonomiques */
-.btn {
-min-height: var(--touch-size); /* ✅ taille tactile */
+
+/* 7. Footer */
+.site-footer{padding:25px 0;border-top:1px solid var(--line);margin-top:50px}
+.footer-inner{display:flex;justify-content:space-between;align-items:center;font-size:0.85rem;color:var(--muted)}
+.footer-inner nav a{margin-left:15px;transition:color var(--transition-fast)}
+.footer-inner nav a:hover{color:var(--gold)}
+
+
+/* Accessibility */
+.skip-link{
+position:absolute;
+top:0;
+left:-999px;
+background:var(--gold);
+color:var(--navy-deep);
+padding:8px 16px;
+z-index:500;
+border-radius:0 0 var(--radius-sm) var(--radius-sm);
+transition:left var(--transition-fast) ease;
+}
+.skip-link:focus{
+left:var(--pad);
 }
 
-/* Responsive */
+/* Form Modale */
+.form-row{display:grid;gap:6px}
+.form-row label{font-weight:600;font-size:0.95rem}
+.form-row input{
+background:var(--navy-deep);
+border:1px solid var(--line);
+padding:10px 15px;
+border-radius:var(--radius-sm);
+color:var(--ivory);
+font-size:1rem;
+transition:border-color var(--transition-fast);
+}
+.form-row input:focus{
+outline:none;
+border-color:var(--gold);
+}
+.btn--icon{
+width:36px;height:36px;
+background:none;color:var(--muted);
+border:1px solid var(--line);
+border-radius:50%;
+font-size:1.2rem;
+transition:all var(--transition-fast);
+}
+.btn--icon:hover{background:var(--line);color:var(--ivory)}
+
+
+/* Responsive (ajustements) */
 @media (max-width:980px){
-.timeline{grid-template-columns:repeat(2,1fr)}
-.services-layout{grid-template-columns:1fr}
-.toc{position:static;order:2;margin-top:12px}
 .hero{padding:64px 0 36px}
 .hero-title{font-size:clamp(24px,6vw,36px)}
-.brief-form{grid-template-columns:1fr}
 .compare-table th,.compare-table td{font-size:0.95rem;padding:10px}
 }
 
-/* Mobile */
+/* Mobile (ajustements) */
 @media (max-width:760px){
 html{font-size:15px}
-.nav-list{display:none}
-.hamburger{display:flex}
-.mobile-nav-overlay{padding-top:120px}
-.pack-grid,.cards{grid-template-columns:1fr;gap:14px}
+.nav-list{display:none} /* Masque la liste de navigation standard */
+.hamburger{display:flex} /* Affiche le hamburger */
+.pack-grid, .cards{grid-template-columns:1fr !important;gap:14px !important} /* Force 1 colonne mobile */
 .hero{padding:56px 0 28px}
-.hero-subtitle{font-size:clamp(0.85rem, 2.5vw, 0.95rem)} /* ✅ fluide */
-.btn{padding:12px 14px;border-radius:10px}
+.hero-subtitle{font-size:clamp(0.85rem, 2.5vw, 0.95rem)}
+.hero-cta{flex-direction:column;gap:10px} /* CTA en colonne */
 .btn--primary{width:100%}
-.value-grid{grid-template-columns:repeat(2,1fr)}
-.product-media img,.cat-card img{aspect-ratio:16/10;object-fit:cover}
-.skip-link:focus{left:12px}
+.footer-inner{flex-direction:column;gap:10px;text-align:center}
+.footer-inner nav a{margin:0 8px}
+.pack-features li{font-size:0.9rem}
 }
 
 /* Très petit */
@@ -598,5 +800,6 @@ html{font-size:15px}
     // --- FIN DE LA LOGIQUE DE MODALE WHATSAPP MISE À JOUR ---
 </script>
 </body>
+
 
 </html>
