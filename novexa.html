@@ -63,18 +63,30 @@ a:hover{opacity:.92}
   left:24px;top:12px;width:auto;height:auto;padding:8px 12px;background:var(--ivory);color:#000;border-radius:6px
 }
 
-/* Header */
-.site-header{
-  position:sticky;top:0;z-index:50;
-  backdrop-filter:saturate(1.2) blur(8px);
-  background:rgba(10,31,68,.65);
-  border-bottom:1px solid var(--line);
-}
-.header-inner{display:flex;align-items:center;justify-content:space-between;height:72px}
-.brand img{filter:grayscale(20%) contrast(105%)}
-.nav-list{list-style:none;margin:0;padding:0;display:flex;gap:24px}
-.nav-list a{padding:8px 10px;border-radius:6px}
-.btn-link{border:1px solid var(--line);border-radius:8px}
+/* 1. Header & Navigation */
+.site-header{padding:12px 0;border-bottom:1px solid
+var(--line);position:sticky;top:0;z-index:100;background:rgba(10,31,68,0.95);backdrop-filter:blur(5px);}
+.header-inner{display:flex;justify-content:space-between;align-items:center;}
+.brand img{width:110px;height:40px;object-fit:contain;filter:brightness(1.1);} /* Améliorer le logo */
+.nav-list{display:flex;gap:20px;list-style:none;padding:0;margin:0;align-items:center}
+.nav-list a{transition:color var(--transition-fast) ease}
+.nav-list a:hover{color:var(--gold)}
+.btn--ghost{border:1px solid var(--line);padding:var(--btn-padding-y)
+var(--btn-padding-x);border-radius:var(--btn-radius);transition:background var(--transition-fast) ease, border-color
+var(--transition-fast) ease}
+.btn--ghost:hover{background:var(--line);border-color:var(--line)}
+/* Hamburger */
+.hamburger{display:none;padding:8px;cursor:pointer;background:transparent;border:none;z-index:10;width:var(--touch-size);height:var(--touch-size);align-items:center;justify-content:center}
+.bar{display:block;width:25px;height:3px;background:var(--ivory);border-radius:2px;transition:transform
+var(--transition-medium), opacity var(--transition-medium)}
+.hamburger.open .bar{opacity:0;transform:translateX(10px)}
+.hamburger.open .bar:nth-child(1){transform:rotate(45deg) translate(5px, 5px);opacity:1}
+.hamburger.open .bar:nth-child(2){opacity:0}
+.hamburger.open .bar:nth-child(3){transform:rotate(-45deg) translate(5px, -5px);opacity:1}
+.mobile-nav-overlay{position:fixed;inset:0;background:var(--navy-deep);z-index:50;padding-top:100px;display:none;opacity:0;transition:opacity
+var(--transition-medium)}
+.mobile-nav-overlay.open{display:block;opacity:1}
+.mobile-nav-overlay .nav-list{flex-direction:column;align-items:flex-start;gap:30px;font-size:1.5rem;padding:var(--pad)}
 
 /* Buttons */
 .btn{
@@ -369,5 +381,6 @@ a:hover{opacity:.92}
         // TODO: relier Réserver à un checkout (Stripe payment link, PayPal, CMI) ou à une prise de rendez-vous (Calendly).
     </script>
 </body>
+
 
 </html>
